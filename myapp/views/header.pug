@@ -1,0 +1,99 @@
+
+extends layout
+
+block headnav
+  // ====== NAVBAR PART START ======
+  section.header-area
+    .navbar-area
+      .container
+        .row
+          .col-lg-12
+            nav.navbar.navbar-expand-lg
+              a.navbar-brand(href='#')
+                img(src='assets/images/logo.png' alt='Logo')
+              button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarEight' aria-controls='navbarEight' aria-expanded='false' aria-label='Toggle navigation')
+                span.toggler-icon
+                span.toggler-icon
+                span.toggler-icon
+              #navbarEight.collapse.navbar-collapse.sub-menu-bar
+                ul.navbar-nav.ml-auto
+                  li.nav-item.active
+                    a.page-scroll(href='#home') HOME
+                  li.nav-item
+                    a.page-scroll(href='#about') ABOUT
+                  li.nav-item
+                    a.page-scroll(href='#portfolio') PORTFOLIO
+                  li.nav-item
+                    a.page-scroll(href='#pricing') PRICING
+                  li.nav-item
+                    a.page-scroll(href='#testimonial') CLIENTS
+                  li.nav-item
+                    a.page-scroll(href='#contact') CONTACT
+              .navbar-btn.d-none.mt-15.d-lg-inline-block
+                a.menu-bar(href='#side-menu-right')
+                  i.lni-menu
+            // navbar
+        // row
+      // container
+    // navbar area
+    #home.slider-area
+      .bd-example
+        #carouselOne.carousel.slide(data-ride='carousel')
+          ol.carousel-indicators
+            li.active(data-target='#carouselOne' data-slide-to='0')
+            li(data-target='#carouselOne' data-slide-to='1')
+            li(data-target='#carouselOne' data-slide-to='2')
+          .carousel-inner
+            .carousel-item.bg_cover.active(style='background-image: url(assets/images/slider-1.jpg)')
+              .carousel-caption
+                .container
+                  .row.justify-content-center
+                    .col-xl-6.col-lg-7.col-sm-10
+                      h2.carousel-title Refreshing Design &amp; Easy to Customize
+                      ul.carousel-btn.rounded-buttons
+                        li
+                          a.main-btn.rounded-three(href='#') GET STARTED
+                        li
+                          a.main-btn.rounded-one(href='#') DOWNLOAD
+                  // row
+                // container
+              // carousel caption
+            // carousel-item
+            .carousel-item.bg_cover(style='background-image: url(assets/images/slider-2.jpg)')
+              .carousel-caption
+                .container
+                  .row.justify-content-center
+                    .col-xl-6.col-lg-7.col-sm-10
+                      h2.carousel-title Based on Latest Bootstrap &amp; HTML5
+                      ul.carousel-btn.rounded-buttons
+                        li
+                          a.main-btn.rounded-three(href='#') GET STARTED
+                        li
+                          a.main-btn.rounded-one(href='#') DOWNLOAD
+                  // row
+                // container
+              // carousel caption
+            // carousel-item
+            .carousel-item.bg_cover(style='background-image: url(assets/images/slider-3.jpg)')
+              .carousel-caption
+                .container
+                  .row.justify-content-center
+                    .col-xl-6.col-lg-7.col-sm-10
+                      h2.carousel-title Multi-purpose Landing Page Template
+                      ul.carousel-btn.rounded-buttons
+                        li
+                          a.main-btn.rounded-three(href='#') GET STARTED
+                        li
+                          a.main-btn.rounded-one(href='#') DOWNLOAD
+                  // row
+                // container
+              // carousel caption
+            // carousel-item
+          // carousel-inner
+          a.carousel-control-prev(href='#carouselOne' role='button' data-slide='prev')
+            i.lni-arrow-left-circle
+          a.carousel-control-next(href='#carouselOne' role='button' data-slide='next')
+            i.lni-arrow-right-circle
+        // carousel
+      // bd-example
+  // ====== NAVBAR PART ENDS ======
