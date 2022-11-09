@@ -12,6 +12,101 @@ block content
             .ytp-spinner-right
               .ytp-spinner-circle
   // ====== PRELOADER PART ENDS ======
+  // ====== NAVBAR PART START ======
+  section.header-area
+    .navbar-area
+      .container
+        .row
+          .col-lg-12
+            nav.navbar.navbar-expand-lg
+              a.navbar-brand(href='#')
+                img(src='/img/logo.png' alt='Logo')
+              button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarEight' aria-controls='navbarEight' aria-expanded='false' aria-label='Toggle navigation')
+                span.toggler-icon
+                span.toggler-icon
+                span.toggler-icon
+              #navbarEight.collapse.navbar-collapse.sub-menu-bar
+                ul.navbar-nav.ml-auto
+                  li.nav-item.active
+                    a.page-scroll(href='#home') HOME
+                  li.nav-item
+                    a.page-scroll(href='#about') ABOUT
+                  li.nav-item
+                    a.page-scroll(href='#portfolio') PORTFOLIO
+                  li.nav-item
+                    a.page-scroll(href='#pricing') PRICING
+                  li.nav-item
+                    a.page-scroll(href='#testimonial') CLIENTS
+                  li.nav-item
+                    a.page-scroll(href='#contact') CONTACT
+              .navbar-btn.d-none.mt-15.d-lg-inline-block
+                a.menu-bar(href='#side-menu-right')
+                  i.lni-menu
+            // navbar
+        // row
+      // container
+    // navbar area
+    #home.slider-area
+      .bd-example
+        #carouselOne.carousel.slide(data-ride='carousel')
+          ol.carousel-indicators
+            li.active(data-target='#carouselOne' data-slide-to='0')
+            li(data-target='#carouselOne' data-slide-to='1')
+            li(data-target='#carouselOne' data-slide-to='2')
+          .carousel-inner
+            .carousel-item.bg_cover.active(style='background-image: url(/img/slider-1.jpg)')
+              .carousel-caption
+                .container
+                  .row.justify-content-center
+                    .col-xl-6.col-lg-7.col-sm-10
+                      h2.carousel-title Refreshing Design &amp; Easy to Customize
+                      ul.carousel-btn.rounded-buttons
+                        li
+                          a.main-btn.rounded-three(href='#') GET STARTED
+                        li
+                          a.main-btn.rounded-one(href='#') DOWNLOAD
+                  // row
+                // container
+              // carousel caption
+            // carousel-item
+            .carousel-item.bg_cover(style='background-image: url(/img/slider-2.jpg)')
+              .carousel-caption
+                .container
+                  .row.justify-content-center
+                    .col-xl-6.col-lg-7.col-sm-10
+                      h2.carousel-title Based on Latest Bootstrap &amp; HTML5
+                      ul.carousel-btn.rounded-buttons
+                        li
+                          a.main-btn.rounded-three(href='#') GET STARTED
+                        li
+                          a.main-btn.rounded-one(href='#') DOWNLOAD
+                  // row
+                // container
+              // carousel caption
+            // carousel-item
+            .carousel-item.bg_cover(style='background-image: url(/img/slider-3.jpg)')
+              .carousel-caption
+                .container
+                  .row.justify-content-center
+                    .col-xl-6.col-lg-7.col-sm-10
+                      h2.carousel-title Multi-purpose Landing Page Template
+                      ul.carousel-btn.rounded-buttons
+                        li
+                          a.main-btn.rounded-three(href='#') GET STARTED
+                        li
+                          a.main-btn.rounded-one(href='#') DOWNLOAD
+                  // row
+                // container
+              // carousel caption
+            // carousel-item
+          // carousel-inner
+          a.carousel-control-prev(href='#carouselOne' role='button' data-slide='prev')
+            i.lni-arrow-left-circle
+          a.carousel-control-next(href='#carouselOne' role='button' data-slide='next')
+            i.lni-arrow-right-circle
+        // carousel
+      // bd-example
+  // ====== NAVBAR PART ENDS ======
   // ====== SAIDEBAR PART START ======
   .sidebar-right
     .sidebar-close
@@ -20,7 +115,7 @@ block content
     .sidebar-content
       .sidebar-logo.text-center
         a(href='#')
-          img(src='assets/images/logo-alt.png' alt='Logo')
+          img(src='/img/logo-alt.png' alt='Logo')
       // logo
       .sidebar-menu
         ul
@@ -52,7 +147,7 @@ block content
       .row.justify-content-center
         .col-xl-6.col-lg-8
           .about-image.text-center.wow.fadeInUp(data-wow-duration='1.5s' data-wow-offset='100')
-            img(src='assets/images/services.png' alt='services')
+            img(src='/img/services.png' alt='services')
           .section-title.text-center.mt-30.pb-40
             h4.title.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='0.6s') The future of designing starts here
             p.text.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='1s')
@@ -63,7 +158,7 @@ block content
         .col-lg-6
           .single-about.d-sm-flex.mt-30.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='1.2s')
             .about-icon
-              img(src='assets/images/icon-1.png' alt='Icon')
+              img(src='/img/icon-1.png' alt='Icon')
             .about-content.media-body
               h4.about-title Powerful templates
               p.text
@@ -72,7 +167,7 @@ block content
         .col-lg-6
           .single-about.d-sm-flex.mt-30.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='1.4s')
             .about-icon
-              img(src='assets/images/icon-2.png' alt='Icon')
+              img(src='/img/icon-2.png' alt='Icon')
             .about-content.media-body
               h4.about-title Designed for everyone
               p.text
@@ -81,7 +176,7 @@ block content
         .col-lg-6
           .single-about.d-sm-flex.mt-30.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='1.6s')
             .about-icon
-              img(src='assets/images/icon-3.png' alt='Icon')
+              img(src='/img/icon-3.png' alt='Icon')
             .about-content.media-body
               h4.about-title Work anywhere
               p.text
@@ -90,7 +185,7 @@ block content
         .col-lg-6
           .single-about.d-sm-flex.mt-30.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='1.8s')
             .about-icon
-              img(src='assets/images/icon-4.png' alt='Icon')
+              img(src='/img/icon-4.png' alt='Icon')
             .about-content.media-body
               h4.about-title Updated in real time
               p.text
@@ -125,11 +220,11 @@ block content
         .col-lg-4.col-sm-6.branding-3.planning-3
           .single-portfolio.mt-30.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='0.2s')
             .portfolio-image
-              img(src='assets/images/portfolio-1.png' alt='')
+              img(src='/img/portfolio-1.png' alt='')
               .portfolio-overlay.d-flex.align-items-center.justify-content-center
                 .portfolio-content
                   .portfolio-icon
-                    a.image-popup(href='assets/images/portfolio-1.png')
+                    a.image-popup(href='/img/portfolio-1.png')
                       i.lni-zoom-in
                   .portfolio-icon
                     a(href='#')
@@ -142,11 +237,11 @@ block content
         .col-lg-4.col-sm-6.marketing-3.research-3
           .single-portfolio.mt-30.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='0.4s')
             .portfolio-image
-              img(src='assets/images/portfolio-2.png' alt='')
+              img(src='/img/portfolio-2.png' alt='')
               .portfolio-overlay.d-flex.align-items-center.justify-content-center
                 .portfolio-content
                   .portfolio-icon
-                    a.image-popup(href='assets/images/portfolio-2.png')
+                    a.image-popup(href='/img/portfolio-2.png')
                       i.lni-zoom-in
                   .portfolio-icon
                     a(href='#')
@@ -159,11 +254,11 @@ block content
         .col-lg-4.col-sm-6.branding-3.marketing-3
           .single-portfolio.mt-30.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='0.7s')
             .portfolio-image
-              img(src='assets/images/portfolio-3.png' alt='')
+              img(src='/img/portfolio-3.png' alt='')
               .portfolio-overlay.d-flex.align-items-center.justify-content-center
                 .portfolio-content
                   .portfolio-icon
-                    a.image-popup(href='assets/images/portfolio-3.png')
+                    a.image-popup(href='/img/portfolio-3.png')
                       i.lni-zoom-in
                   .portfolio-icon
                     a(href='#')
@@ -176,11 +271,11 @@ block content
         .col-lg-4.col-sm-6.planning-3.research-3
           .single-portfolio.mt-30.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='0.2s')
             .portfolio-image
-              img(src='assets/images/portfolio-4.png' alt='')
+              img(src='/img/portfolio-4.png' alt='')
               .portfolio-overlay.d-flex.align-items-center.justify-content-center
                 .portfolio-content
                   .portfolio-icon
-                    a.image-popup(href='assets/images/portfolio-4.png')
+                    a.image-popup(href='/img/portfolio-4.png')
                       i.lni-zoom-in
                   .portfolio-icon
                     a(href='#')
@@ -193,11 +288,11 @@ block content
         .col-lg-4.col-sm-6.marketing-3
           .single-portfolio.mt-30.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='0.4s')
             .portfolio-image
-              img(src='assets/images/portfolio-5.png' alt='')
+              img(src='/img/portfolio-5.png' alt='')
               .portfolio-overlay.d-flex.align-items-center.justify-content-center
                 .portfolio-content
                   .portfolio-icon
-                    a.image-popup(href='assets/images/portfolio-5.png')
+                    a.image-popup(href='/img/portfolio-5.png')
                       i.lni-zoom-in
                   .portfolio-icon
                     a(href='#')
@@ -210,11 +305,11 @@ block content
         .col-lg-4.col-sm-6.planning-3
           .single-portfolio.mt-30.wow.fadeInUp(data-wow-duration='1.5s' data-wow-delay='0.7s')
             .portfolio-image
-              img(src='assets/images/portfolio-6.png' alt='')
+              img(src='/img/portfolio-6.png' alt='')
               .portfolio-overlay.d-flex.align-items-center.justify-content-center
                 .portfolio-content
                   .portfolio-icon
-                    a.image-popup(href='assets/images/portfolio-6.png')
+                    a.image-popup(href='/img/portfolio-6.png')
                       i.lni-zoom-in
                   .portfolio-icon
                     a(href='#')
@@ -242,7 +337,7 @@ block content
         .col-lg-4.col-md-7.col-sm-9
           .pricing-style-one.mt-40.wow.fadeIn(data-wow-duration='1.5s' data-wow-delay='0.2s')
             .pricing-icon.text-center
-              img(src='assets/images/wman.svg' alt='')
+              img(src='/img/wman.svg' alt='')
             .pricing-header.text-center
               h5.sub-title Basic
               p.month
@@ -262,7 +357,7 @@ block content
         .col-lg-4.col-md-7.col-sm-9
           .pricing-style-one.mt-40.wow.fadeIn(data-wow-duration='1.5s' data-wow-delay='0.5s')
             .pricing-icon.text-center
-              img(src='assets/images/wman.svg' alt='')
+              img(src='/img/wman.svg' alt='')
             .pricing-header.text-center
               h5.sub-title Pro
               p.month
@@ -282,7 +377,7 @@ block content
         .col-lg-4.col-md-7.col-sm-9
           .pricing-style-one.mt-40.wow.fadeIn(data-wow-duration='1.5s' data-wow-delay='0.8s')
             .pricing-icon.text-center
-              img(src='assets/images/wman.svg' alt='')
+              img(src='/img/wman.svg' alt='')
             .pricing-header.text-center
               h5.sub-title Enterprise
               p.month
@@ -338,7 +433,7 @@ block content
             .col-lg-4
               .single-testimonial.mt-30.mb-30.text-center
                 .testimonial-image
-                  img(src='assets/images/author-3.jpg' alt='Author')
+                  img(src='/img/author-3.jpg' alt='Author')
                 .testimonial-content
                   p.text
                     | Stop wasting time and money designing and managing a website that doesn&rsquo;t get results. Happiness guaranteed! Stop wasting time and money designing and managing a website that doesn&rsquo;t get results. Happiness guaranteed!
@@ -348,7 +443,7 @@ block content
             .col-lg-4
               .single-testimonial.mt-30.mb-30.text-center
                 .testimonial-image
-                  img(src='assets/images/author-1.jpg' alt='Author')
+                  img(src='/img/author-1.jpg' alt='Author')
                 .testimonial-content
                   p.text
                     | Stop wasting time and money designing and managing a website that doesn&rsquo;t get results. Happiness guaranteed! Stop wasting time and money designing and managing a website that doesn&rsquo;t get results. Happiness guaranteed!
@@ -358,7 +453,7 @@ block content
             .col-lg-4
               .single-testimonial.mt-30.mb-30.text-center
                 .testimonial-image
-                  img(src='assets/images/author-2.jpg' alt='Author')
+                  img(src='/img/author-2.jpg' alt='Author')
                 .testimonial-content
                   p.text
                     | Stop wasting time and money designing and managing a website that doesn&rsquo;t get results. Happiness guaranteed! Stop wasting time and money designing and managing a website that doesn&rsquo;t get results. Happiness guaranteed!
@@ -368,7 +463,7 @@ block content
             .col-lg-4
               .single-testimonial.mt-30.mb-30.text-center
                 .testimonial-image
-                  img(src='assets/images/author-4.jpg' alt='Author')
+                  img(src='/img/author-4.jpg' alt='Author')
                 .testimonial-content
                   p.text
                     | Stop wasting time and money designing and managing a website that doesn&rsquo;t get results. Happiness guaranteed! Stop wasting time and money designing and managing a website that doesn&rsquo;t get results. Happiness guaranteed!
@@ -385,35 +480,35 @@ block content
       .row.client-active
         .col-lg-3
           .single-client.text-center
-            img(src='assets/images/client_logo_01.png' alt='Logo')
+            img(src='/img/client_logo_01.png' alt='Logo')
           // single client
         .col-lg-3
           .single-client.text-center
-            img(src='assets/images/client_logo_02.png' alt='Logo')
+            img(src='/img/client_logo_02.png' alt='Logo')
           // single client
         .col-lg-3
           .single-client.text-center
-            img(src='assets/images/client_logo_03.png' alt='Logo')
+            img(src='/img/client_logo_03.png' alt='Logo')
           // single client
         .col-lg-3
           .single-client.text-center
-            img(src='assets/images/client_logo_04.png' alt='Logo')
+            img(src='/img/client_logo_04.png' alt='Logo')
           // single client
         .col-lg-3
           .single-client.text-center
-            img(src='assets/images/client_logo_05.png' alt='Logo')
+            img(src='/img/client_logo_05.png' alt='Logo')
           // single client
         .col-lg-3
           .single-client.text-center
-            img(src='assets/images/client_logo_06.png' alt='Logo')
+            img(src='/img/client_logo_06.png' alt='Logo')
           // single client
         .col-lg-3
           .single-client.text-center
-            img(src='assets/images/client_logo_07.png' alt='Logo')
+            img(src='/img/client_logo_07.png' alt='Logo')
           // single client
         .col-lg-3
           .single-client.text-center
-            img(src='assets/images/client_logo_08.png' alt='Logo')
+            img(src='/img/client_logo_08.png' alt='Logo')
           // single client
       // row
     // container
@@ -541,7 +636,7 @@ block content
           .col-lg-2
             .footer-logo.text-center.mt-10
               a(href='index.html')
-                img(src='assets/images/logo-2.svg' alt='Logo')
+                img(src='/img/logo-2.svg' alt='Logo')
             // footer logo
           .col-lg-5
             ul.social.text-center.text-lg-right.mt-10
@@ -568,25 +663,5 @@ block content
   // ====== BACK TOP TOP PART ENDS ======
   // ====== PART START ======
   // ====== PART ENDS ======
-  // ====== jquery js ======
-  script(src='assets/js/vendor/modernizr-3.6.0.min.js')
-  script(src='assets/js/vendor/jquery-1.12.4.min.js')
-  // ====== Bootstrap js ======
-  script(src='assets/js/bootstrap.min.js')
-  script(src='assets/js/popper.min.js')
-  // ====== Slick js ======
-  script(src='assets/js/slick.min.js')
-  // ====== Isotope js ======
-  script(src='assets/js/isotope.pkgd.min.js')
-  // ====== Images Loaded js ======
-  script(src='assets/js/imagesloaded.pkgd.min.js')
-  // ====== Magnific Popup js ======
-  script(src='assets/js/jquery.magnific-popup.min.js')
-  // ====== Scrolling js ======
-  script(src='assets/js/scrolling-nav.js')
-  script(src='assets/js/jquery.easing.min.js')
-  // ====== wow js ======
-  script(src='assets/js/wow.min.js')
-  // ====== Main js ======
-  script(src='assets/js/main.js')
+
 
