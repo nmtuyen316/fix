@@ -10,10 +10,7 @@ connection.connect(function(error){
     if(error){
         throw error;
     }else{
-        connection.query("CREATE DATABASE qlkh", function (err, result) {
-            if (err) throw err;
-            console.log("Database created");
-          });
+        console.log("connected mysql");
     }
 });
 module.exports = connection;

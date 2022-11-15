@@ -1,5 +1,5 @@
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-flush privileges;
+--ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+--flush privileges;
 create database QLKH
 use QLKH
 create table KHACHHANG(
