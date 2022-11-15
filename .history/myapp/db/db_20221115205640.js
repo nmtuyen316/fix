@@ -4,7 +4,7 @@ require('dotenv').config();
 const connection = mysql.createConnection({
     host:'localhost',
     user:'root',
-    password:'Tuyen00000@'
+    password:process.env.PASS
 });
 connection.connect(function(error){
     if(error){
@@ -16,3 +16,4 @@ connection.connect(function(error){
           });
     }
 });
+module.exports = connection;
