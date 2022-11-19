@@ -3,9 +3,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// //database
+// const dbconfig =require('./db/dbConfig');
+// const connection = require('./db/connection');
+// const query = require('./db/query');
+// //action
+// app.get('/list', async (req, res) => {
+//   const conn = await connection(dbConfig).catch(e => {}) 
+//   const results = await query(conn, 'SELECT * FROM tweets').catch(console.log);
+//   res.json({ results });
+// })
 
 var session = require('express-session');
-
+//router
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var signinRouter = require('./routes/signin');
@@ -29,6 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//router
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/signin', signinRouter);
