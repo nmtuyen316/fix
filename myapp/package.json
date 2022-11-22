@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "concurrently --kill-others \"npm run start-dev\" \"npm run start-watch\"",
+    "start-dev": "nodemon ./bin/www",
+    "start-watch": "node-sass -w public/scss/ -o public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -25,6 +27,8 @@
     "source-map": "^0.7.4"
   },
   "devDependencies": {
+    "concurrently": "^7.6.0",
+    "node-sass": "^8.0.0",
     "nodemon": "^2.0.20"
   }
 }

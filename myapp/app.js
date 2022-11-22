@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 const cors = require("cors");
 require('dotenv').config();
 // //database
-// const dbconfig =require('./db/dbConfig');
+// const dbConfig =require('./db/dbConfig');
 // const connection = require('./db/connection');
 // const query = require('./db/query');
 // //action
