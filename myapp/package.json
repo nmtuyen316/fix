@@ -3,9 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently --kill-others \"npm run start-dev\" \"npm run start-watch\"",
-    "start-dev": "nodemon ./bin/www",
-    "start-watch": "node-sass -w public/scss/ -o public/css/",
+    "start": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
