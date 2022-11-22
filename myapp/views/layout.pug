@@ -24,11 +24,140 @@ head
   // ====== Style css ======
   link(rel='stylesheet' href='/stylesheets/style.css')
 body
-  block load
-  block head
+  // ====== PRELOADER PART START ======
+  .preloader
+    .loader
+      .ytp-spinner
+        .ytp-spinner-container
+          .ytp-spinner-rotator
+            .ytp-spinner-left
+              .ytp-spinner-circle
+            .ytp-spinner-right
+              .ytp-spinner-circle
+  // ====== PRELOADER PART ENDS ======
+  // ====== NAVBAR PART START ======
+  section.header-area
+    .navbar-area
+      .container
+        .row
+          .col-lg-12
+            nav.navbar.navbar-expand-lg
+              a.navbar-brand(href='#')
+                img(src='/img/logo.png' alt='Logo')
+              button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarEight' aria-controls='navbarEight' aria-expanded='false' aria-label='Toggle navigation')
+                span.toggler-icon
+                span.toggler-icon
+                span.toggler-icon
+              #navbarEight.collapse.navbar-collapse.sub-menu-bar
+                ul.navbar-nav.ml-auto
+                  li.nav-item.active
+                    a.page-scroll(href='#home') HOME
+                  //- li.nav-item
+                  //-   a.page-scroll(href='#about') ABOUT
+                  li.nav-item
+                    a.page-scroll(href='#portfolio') PORTFOLIO
+                  //- li.nav-item
+                  //-   a.page-scroll(href='#pricing') PRICING
+                  //- li.nav-item
+                  //-   a.page-scroll(href='#testimonial') CLIENTS
+                  li.nav-item
+                    a.page-scroll(href='#contact') CONTACT                  
+                  li.nav-item
+                    a.page-scroll(href='http://localhost:3000/signin') LOGIN
+              //- .navbar-btn.d-none.mt-15.d-lg-inline-block
+              //-   a.menu-bar(href='#side-menu-right')
+              //-     i.lni-menu
+            // navbar
+  // ====== NAVBAR PART ENDS ======
   block content
-  block foot
-    // ====== jquery js ======
+  // ====== FOOTER FOUR PART START ======
+  footer#footer.footer-area
+    .footer-widget
+      .container
+        .row
+          .col-lg-3.col-sm-6
+            .footer-link
+              h6.footer-title Company
+              ul
+                li
+                  a(href='#') About
+                li
+                  a(href='#') Contact
+                li
+                  a(href='#') Profile
+            // footer link
+          .col-lg-3.col-sm-6
+            .footer-link
+              h6.footer-title Solutions
+              ul
+                li
+                  a(href='#') Facilities Services
+                li
+                  a(href='#') Workplace Staffing
+                li
+                  a(href='#') Project Management
+            // footer link
+          .col-lg-3.col-sm-6
+            .footer-link
+              h6.footer-title Product &amp; Services
+              ul
+                li
+                  a(href='#') Products
+                li
+                  a(href='#') Business
+                li
+                  a(href='#') Developer
+            // footer link
+          .col-lg-3.col-sm-6
+            .footer-link
+              h6.footer-title Help &amp; Suuport
+              ul
+                li
+                  a(href='#') Support Center
+                li
+                  a(href='#') FAQ
+                li
+                  a(href='#') Terms &amp; Conditions
+            // footer link
+        // row
+      // container
+    // footer widget
+    .footer-copyright
+      .container
+        .row.align-items-center
+          .col-lg-5
+            .copyright.text-center.text-lg-left.mt-10
+              p.text
+                | Crafted by 
+                a(style='color: #38f9d7' rel='nofollow' href='https://uideck.con') UIdeck
+                |  and UI Elements from 
+                a(style='color: #38f9d7' rel='nofollow' href='https://ayroui.com') Ayro UI
+            // copyright
+          .col-lg-2
+            .footer-logo.text-center.mt-10
+              a(href='index.html')
+                img(src='/img/logo-2.svg' alt='Logo')
+            // footer logo
+          .col-lg-5
+            ul.social.text-center.text-lg-right.mt-10
+              li
+                a(href='https://facebook.com/uideckHQ')
+                  i.lni-facebook-filled
+              li
+                a(href='https://twitter.com/uideckHQ')
+                  i.lni-twitter-original
+              li
+                a(href='https://instagram.com/uideckHQ')
+                  i.lni-instagram-original
+              li
+                a(href='#')
+                  i.lni-linkedin-original
+            // social
+        // row
+      // container
+    // footer copyright
+  // ====== FOOTER FOUR PART ENDS ======
+  // ====== jquery js ======
   script(src='/script/vendor/modernizr-3.6.0.min.js')
   script(src='/script/vendor/jquery-1.12.4.min.js')
   // ====== Bootstrap js ======
