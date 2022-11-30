@@ -1,0 +1,25 @@
+{
+  "name": "fix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "npm start --prefix backend",
+    "client": "npm start --prefix frontend",
+    "start": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmtuyen316/fix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmtuyen316/fix/issues"
+  },
+  "homepage": "https://github.com/nmtuyen316/fix#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
