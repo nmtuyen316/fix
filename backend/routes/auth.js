@@ -138,7 +138,7 @@ router.post('/refresh',async (req,res)=>{
 		const newAccessToken = jwt.sign(
 			{ accountID: user.accountID },
 			process.env.ACCESS_TOKEN_SECRET,{
-				expiresIn:"30s"
+				expiresIn:"1h"
 			}
 		)
 		const newRefreshToken = jwt.sign(

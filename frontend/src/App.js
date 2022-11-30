@@ -7,7 +7,6 @@ import './App.css';
 import AuthLayout from "./components/Auth/AuthLayout";
 import Root from "./components/Root";
 import ProtectLayout from "./components/ProtectedLayout"
-import LogOut from "./components/Auth/handleAuth/Logout";
 function App() {
   return (
     <Routes>
@@ -15,7 +14,6 @@ function App() {
         <Route path="/" element={<Root />} exact />
       </Route>
       <Route path="/login" element={<AuthLayout />} />
-      <Route path="/logout" element={<LogOut/>} />
     </Routes>
   )
 }
