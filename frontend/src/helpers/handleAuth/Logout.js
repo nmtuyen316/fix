@@ -9,8 +9,8 @@ import axios from "axios";
 // }
 
 // let reqOptions = {
-//   url: "http://localhost:5000/api/auth/logout",
-//   method: "POST",
+  //   url: "http://localhost:5000/api/auth/logout",
+  //   method: "POST",
 //   headers: headersList,
 // }
 
@@ -22,12 +22,12 @@ import axios from "axios";
 //     window.location.assign('/login');
 // }
 export default async function Logout() {
-
-let headersList = {
- "Accept": "*/*",
- "User-Agent": "Thunder Client (https://www.thunderclient.com)",
- "token": "Bearer "+localStorage.getItem('token') 
-}
+  
+  let headersList = {
+    "Accept": "*/*",
+    "token": `Bearer ${localStorage.getItem('token')}`
+  }
+  localStorage.removeItem('token');
 
 let reqOptions = {
   url: "http://localhost:5000/api/auth/logout",
@@ -36,7 +36,6 @@ let reqOptions = {
 }
 
 await axios.request(reqOptions);
-localStorage.clear();
 window.location.assign('/login');
 }
 
