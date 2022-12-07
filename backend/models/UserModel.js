@@ -27,11 +27,10 @@ const UserSchema = new Schema({
     refreshtoken: {
         type: String,
 		default: null
-    },
-	createdAt: {
-		type: Date,
-		default: Date.now
-	}
+    }
+},
+{
+	timestamps: true
 })
 
 module.exports = mongoose.model('users', UserSchema)

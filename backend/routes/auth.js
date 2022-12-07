@@ -121,10 +121,15 @@ router.post('/login', async (req, res) => {
 })
 router.post('/refresh',async (req,res)=>{
 	const refreshtoken = req.cookies.refresh_token;
+
 	const decoded = jwt.verify(refreshtoken,process.env.REFRESH_TOKEN_SECRET);
+
 	const existsRefeshtoken = User.findOne({refreshtoken: decoded});
-	if(!refreshtoken) return res.status(401).json("you are not authenticated");
-	if(!existsRefeshtoken[0]) return res.status(403).json("refreshtoken is not valid");
+
+	if(!refreshtoken) 
+		return res.status(401).json("you are not authenticated");
+	if(!existsRefeshtoken[0]) 
+		return res.status(403).json("refreshtoken is not valid");
 	jwt.verify(refreshtoken,process.env.REFRESH_TOKEN_SECRET,(err,user)=>{
 		if(err){
 			console.log(err);
