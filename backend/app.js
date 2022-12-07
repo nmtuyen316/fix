@@ -4,6 +4,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require("cors");
 require('dotenv').config();
+const connect = require('./config/conn');
+
+connect();
 
 const PORT = process.env.PORT || 3000;
 var session = require('express-session');

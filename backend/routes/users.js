@@ -1,9 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const verifyToken = require('../middleware/auth')
-const dbconfig = require('../db/dbConfig');
-const connection = require('../db/connection');
-const query = require('../db/query');
 
 // const Store = require('../models/Store')
 
@@ -12,8 +9,8 @@ const query = require('../db/query');
 // @access Private
 router.get('/', verifyToken, async (req, res) => {
 	try {
-		const conn = await connection(dbconfig).catch(e => {}) 
-		const Stores = await query(conn, `select c.name, c.point, c.img,b.soluong,b.price from orderGift a, orderGiftDetail b, gift c where a.ordergID = b.ordergID and b.giftID = c.giftID and a.status=1 and a.accountID = ${req.accountID}`).catch(console.log); 
+		// const conn = await connection(dbconfig).catch(e => {}) 
+		// const Stores = await query(conn, `select c.name, c.point, c.img,b.soluong,b.price from orderGift a, orderGiftDetail b, gift c where a.ordergID = b.ordergID and b.giftID = c.giftID and a.status=1 and a.accountID = ${req.accountID}`).catch(console.log); 
 		res.json({ success: true, Stores })
 	} catch (error) {
 		console.log(error)
