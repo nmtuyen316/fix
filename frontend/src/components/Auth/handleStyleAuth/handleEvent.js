@@ -1,17 +1,17 @@
 import $ from "jquery";
 import login from '../../../helpers/handleAuth/Login'
 import Register from "../../../helpers/handleAuth/Register";
-export async function CheckPassRegister(){
-    
-}
+
 export async function handleSubmitRegister(event,username,password){
     event.preventDefault();
-    await Register(username,password);
+    var completePass = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}/
+    if(password.match(completePass)){
+        await Register(username,password)
+    }
 }
 export async function handleSubmitLogin(event, user, password) {  //  prevent buttons in form to reload
     event.preventDefault();
     await login(user,password);
-    if(localStorage.getItem('token')) window.location.assign('/');
 };
 export function handleSign_upClick() { // when click Sign Up button, hide the Log In elements, and display the Sign Up elements
     $("#title-login").toggleClass("hidden", true);
