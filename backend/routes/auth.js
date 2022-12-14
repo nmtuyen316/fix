@@ -31,7 +31,7 @@ router.post('/register', async (req, res) => {
 	if (!username || !password)
 		return res
 			.status(400)
-			.json({ success: false, message: 'Missing username and/or password' })
+			.json({ success: false, message: 'Chưa nhập user hoặc password' })
 
 	try {
 		// Check for existing user
@@ -39,7 +39,7 @@ router.post('/register', async (req, res) => {
 		if (user)
 			return res
 				.status(400)
-				.json({ success: false, message: 'Username already taken' })
+				.json({ success: false, message: 'User name đã tồn tại' })
 
 		// All good
 		const hashedPassword = await argon2.hash(password)
@@ -54,11 +54,11 @@ router.post('/register', async (req, res) => {
 
 		res.json({
 			success: true,
-			message: 'User created successfully'
+			message: 'Tạo tài khoản thành công'
 		})
 	} catch (error) {
 		console.log(error)
-		res.status(500).json({ success: false, message: 'Internal server error' })
+		res.status(500).json({ success: false, message: 'Lỗi máy chủ' })
 	}
 })
 
@@ -72,7 +72,7 @@ router.post('/login', async (req, res) => {
 	if (!username || !password)
 		return res
 			.status(400)
-			.json({ success: false, message: 'Missing username and/or password' })
+			.json({ success: false, message: 'Chưa nhập user hoặc password' })
 
 	try {
 		// Check for existing user
@@ -80,14 +80,14 @@ router.post('/login', async (req, res) => {
 		if (!user)
 			return res
 				.status(400)
-				.json({ success: false, message: 'Incorrect username or password' })
+				.json({ success: false, message: 'Nhập sai user name hoặc password' })
 
 		// Username found
 		const passwordValid = await argon2.verify(user.password, password)
 		if (!passwordValid)
 			return res
 				.status(400)
-				.json({ success: false, message: 'Incorrect username or password' })
+				.json({ success: false, message: 'Nhập sai user name hoặc password' })
 
 		// All good
 		// Return token
@@ -111,12 +111,12 @@ router.post('/login', async (req, res) => {
 		})
 		res.json({
 			success: true,
-			message: 'User logged in successfully',
+			message: 'Đăng nhập thành công',
 			accessToken
 		})
 	} catch (error) {
 		console.log(error)
-		res.status(500).json({ success: false, message: 'Internal server error' })
+		res.status(500).json({ success: false, message: 'Lỗi máy chủ' })
 	}
 })
 router.post('/refresh',async (req,res)=>{
@@ -127,9 +127,9 @@ router.post('/refresh',async (req,res)=>{
 	const existsRefeshtoken = User.findOne({refreshtoken: decoded});
 
 	if(!refreshtoken) 
-		return res.status(401).json("you are not authenticated");
+		return res.status(401).json("Bạn chưa đăng nhập");
 	if(!existsRefeshtoken[0]) 
-		return res.status(403).json("refreshtoken is not valid");
+		return res.status(403).json("Không tồn tại refreshtoken");
 	jwt.verify(refreshtoken,process.env.REFRESH_TOKEN_SECRET,(err,user)=>{
 		if(err){
 			console.log(err);
