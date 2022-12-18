@@ -3,22 +3,30 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
-	username: {
+	name: {
 		type: String,
-		required: true,
-		unique: true
+        required: true
+	},
+	email: {
+        type: String,
+        required: true
 	},
 	password: {
 		type: String,
 		required: true
 	},
+	username: {
+		type: String,
+		required: true,
+		unique: true
+	},
 	address:{
 		type: String,
 		default:null
 	},
-	phone:{
+	mobile:{
 		type: String,
-		default:null
+		required: true
 	},
     point: {
         type: Number,

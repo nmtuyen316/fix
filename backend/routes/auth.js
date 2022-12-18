@@ -25,13 +25,13 @@ router.get('/', verifyToken, async (req, res) => {
 // @desc Register user
 // @access Public
 router.post('/register', async (req, res) => {
-	const { username, password } = req.body
+	const { username, password,email,name,mobile } = req.body
 
 	// Simple validation
-	if (!username || !password)
+	if (!username || !password || !email || !name || !mobile)
 		return res
 			.status(400)
-			.json({ success: false, message: 'Chưa nhập user hoặc password' })
+			.json({ success: false, message: 'Chưa nhập đầy đủ các trường' })
 
 	try {
 		// Check for existing user
@@ -43,7 +43,7 @@ router.post('/register', async (req, res) => {
 
 		// All good
 		const hashedPassword = await argon2.hash(password)
-		const newUser = new User({ username, password: hashedPassword })
+		const newUser = new User({ username, password: hashedPassword,name: name,mobile: mobile,email: email })
 		await newUser.save()
 
 		// // Return token
