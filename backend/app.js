@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 var session = require('express-session');
 
 var authRouter = require('../backend/routes/auth');
+var productsRouter = require('./routes/products');
 // var usersRouter = require('../backend/routes/users');
 
 var app = express();
@@ -37,6 +38,7 @@ const corsOptions ={
 app.use(cors(corsOptions)) 
 
 app.use('/api/auth', authRouter);
+app.use('/api/products', productsRouter);
 // app.use('/users', usersRouter);
 
 app.listen(PORT);

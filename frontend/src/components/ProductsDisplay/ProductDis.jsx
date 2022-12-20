@@ -23,14 +23,14 @@ const ProductDis = ({ item }) => {
     <div>
       <Box
         key={_id}
-        w_idth={"95%"}
+        width={"95%"}
         m="auto"
         onMouseEnter={ChangeHoverImage}
         onMouseLeave={OriginalImage}
         onClick={handleDes}
         my={"3"}
       >
-        <Box overflow={"h_idden"} position={"relative"}>
+        <Box overflow={"hidden"} position={"relative"}>
           <Image className="imageAnimation" src={img} alt={name} />
         </Box>
         <Box

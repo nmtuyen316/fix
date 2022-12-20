@@ -17,26 +17,23 @@ import { GrLogout } from "react-icons/gr";
 //import { FiUser } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { CgProfile } from "react-icons/cg";
+// import { CgProfile } from "react-icons/cg";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { BsCartCheck } from "react-icons/bs";
-import { RiCoupon3Line } from "react-icons/ri";
 import { profile,logout } from "../../redux/AuthReducer/action";
-import { ShowCoupon } from "../Coupon/ShowCoupon";
 import { getLocalData } from "../../utils/localStorage";
 const Profile = ({ colorMode }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const auth = useSelector((state) => state.AuthReducer.isAuth);
+  // const auth = useSelector((state) => state.AuthReducer.isAuth);
 
   const profileData = useSelector((state) => state.AuthReducer?.profileData);
-  // console.log("profileData:", profileData);
   useEffect(() => {
     if (profileData?.length === 0) {
       const token = localStorage.getItem("token"); //different approaches for getting local storage
-      const email = getLocalData("userInfo");
+      const username = getLocalData("userInfo");
       const payload = {
-        email: email,
+        username: username,
         token,
       };
       dispatch(profile(payload));
@@ -48,10 +45,6 @@ const Profile = ({ colorMode }) => {
     const payload ={
       token
     }
-    // new Promise((res, rej) => {
-    //   res(localStorage.removeItem("token"));
-    //   res(localStorage.removeItem("userInfo"));
-    // }
     dispatch(logout(payload)).then(() => {
       navigate("/");
       window.location.reload();
@@ -73,7 +66,7 @@ const Profile = ({ colorMode }) => {
           <Avatar
             size={"sm"}
             name={profileData.length !== 0 ? profileData.name : ""}
-            src={profileData.length !== 0 ? profileData.description : ""}
+            // src={profileData.length !== 0 ? profileData.description : ""}
           />
           <Text
             fontSize={"xs"}
@@ -88,12 +81,12 @@ const Profile = ({ colorMode }) => {
               {profileData.length !== 0 ? profileData.name : ""}
             </MenuItem>
             <MenuDivider />
-            {auth ? (
+            {/* {auth ? (
               <MenuItem onClick={() => navigate("/myaccount")}>
                 <Avatar
                   size={"xs"}
                   name={profileData.length !== 0 ? profileData.name : ""}
-                  src={profileData.length !== 0 ? profileData.description : ""}
+                  // src={profileData.length !== 0 ? profileData.description : ""}
                 />
                 <Text fontSize={"sm"}>
                   {profileData.length !== 0 ? profileData.email : ""}
@@ -103,12 +96,7 @@ const Profile = ({ colorMode }) => {
               <MenuItem onClick={() => navigate("/myaccount")}>
                 <CgProfile /> My Account
               </MenuItem>
-            )}
-
-            <MenuItem>
-              <RiCoupon3Line />
-              <ShowCoupon />
-            </MenuItem>
+            )} */}
             <MenuItem onClick={() => navigate("/wishlist")}>
               <MdOutlineFavoriteBorder color={"red"} />
               Wishlist
@@ -117,7 +105,7 @@ const Profile = ({ colorMode }) => {
               <BsCartCheck color={"blue"} />
               Cart
             </MenuItem>
-            <MenuItem onClick={logoutHandler}>
+            <MenuItem onClick={logoutHandler} color='red.400'>
               <GrLogout />
               Logout
             </MenuItem>
@@ -129,7 +117,3 @@ const Profile = ({ colorMode }) => {
 };
 
 export default Profile;
-
-// const username = localStorage.getItem("userInfo")
-//   ? JSON.parse(localStorage.getItem("userInfo"))
-//   : null;

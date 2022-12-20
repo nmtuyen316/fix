@@ -17,15 +17,18 @@ import logo from "../../img/favicon.ico";
 import { BsSuitHeart } from "react-icons/bs";
 import { BsBag } from "react-icons/bs";
 import { DarkModeBtn } from "../DarkMode/DarkModeBtn";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import SideMenu from "../Sidebar/Sidebar";
 import Profile from "../Profile/Profile";
+import { profile } from "../../redux/AuthReducer/action";
+import { getLocalData } from "../../utils/localStorage";
 
 const Navbar = () => {
   const [isLargerThan] = useMediaQuery("(min-width: 768px)");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const profileData = useSelector((state) => state.AuthReducer?.profileData);
   const auth = useSelector((state) => state.AuthReducer.isAuth);
-
   const cart = useSelector((store) => store.cart.cart);
   const wishlist = useSelector((store) => store.wishReducer.wishlist);
   const { colorMode } = useColorMode();
@@ -40,6 +43,17 @@ const Navbar = () => {
     transition: "0.5s",
     borderBottom: "2px solid black",
   };
+  React.useEffect(() => {
+    if (profileData?.length === 0) {
+      const token = localStorage.getItem("token"); //different approaches for getting local storage
+      const username = getLocalData("userInfo");
+      const payload = {
+        username: username,
+        token,
+      };
+      dispatch(profile(payload));
+    }
+  }, [dispatch, profileData?.length]);
 
   const handleHome = () => {
     navigate("/");
@@ -55,40 +69,9 @@ const Navbar = () => {
   };
   return (
     <div className="Navbar">
-      {/* <Flex
-        h={"9vh"}
-        display="flex"
-        justifyContent={"right"}
-        gap="10px"
-        alignItems={"center"}
-        bg={colorMode === "dark" ? "none" : "#ebecec"}
-      >
-        {auth ? (
-          <Box>
-            <Profile colorMode={colorMode} />
-          </Box>
-        ) : (
-          <Button
-            bg={"black"}
-            color={"whitesmoke"}
-            border={"1px solid beige"}
-            _hover={{
-              bg: "none",
-              color: "teal",
-            }}
-            onClick={handleSignup}
-          >
-            Sign up
-          </Button>
-        )}
-        <Box mr={["5", "6", "7", "9"]}>
-          {" "}
-          <DarkModeBtn />
-        </Box>
-      </Flex> */}
       <Flex fontWeight="bold">
         <HStack onClick={handleHome} cursor={"pointer"}>
-          <Image width={["25px"]} m={5} src={logo} alt="logo" />
+          <Image width={["120px"]} ml={100} src={logo} alt="logo" />
         </HStack>
         <Spacer />
         {isLargerThan ? (
@@ -117,61 +100,23 @@ const Navbar = () => {
                 AllProducts
               </Text>
             </NavLink>
-            {/* <NavLink
-              style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
-              to="/men"
-            >
-              <Text
-                color={colorMode === "dark" ? "white" : "black"}
-                my="4"
-                mx="2"
-              >
-                Men
-              </Text>
-            </NavLink>
-            <NavLink
-              style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
-              to="/women"
-            >
-              <Text
-                color={colorMode === "dark" ? "white" : "black"}
-                my="4"
-                mx="2"
-              >
-                Women
-              </Text>
-            </NavLink>
-            <NavLink
-              style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
-              to="/shoes"
-            >
-              <Text
-                color={colorMode === "dark" ? "white" : "black"}
-                my="4"
-                mx="2"
-              >
-                Shoes
-              </Text>
-            </NavLink> */}
           </HStack>
         ) : null}
 
         <Spacer />
 
         <HStack>
-          {/* <Box>
-            <Icon
-              w={6}
-              h={6}
-              my="4"
-              mx={isLargerThan ? "3" : "1"}
-              as={BsSearch}
-            />
-          </Box> */}
           {auth ? (
+            <>
+            <Box>
+              <Text color={"yellow.400"}>
+                {profileData.length !== 0 ? profileData.point : ""} Điểm ET
+              </Text>
+            </Box>
             <Box>
               <Profile colorMode={colorMode} />
             </Box>
+            </>
           ) : (
             <Button
               bg={"black"}

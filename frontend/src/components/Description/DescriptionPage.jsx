@@ -35,7 +35,7 @@ const DescriptionPage = () => {
   }, [dispatch, products.length]);
   useEffect(() => {
     if (id) {
-      const cur = products.find((item) => item.id === Number(id));
+      const cur = products.find((item) => item._id === id);
       cur && setCurrentProducts(cur);
     }
   }, [id, products]);
@@ -55,13 +55,13 @@ const DescriptionPage = () => {
     dispatch(addToWishList(payload, toast));
   };
   return (
-    <div key={currentProducts.id}>
+    <div key={currentProducts._id}>
       <Navbar /> <br />
       <Flex
         justify={"space-between"}
         flexDirection={isLargerThan ? "row" : "column"}
       >
-        <Box width={["100%", "100%", "60%", "60%"]} min-height={"100vh"}>
+<Box width={["100%", "100%", "60%", "60%"]} min-height={"100vh"}>
           {/* ------------------------------ 1 image------------------------------------ */}
           <Box>
             <Image w={"100%"} src={currentProducts.images?.[0]} />
@@ -93,7 +93,7 @@ const DescriptionPage = () => {
 
         {/* ------------------------------details Box------------------------------------ */}
         <Box
-          width={["100%", "100%", "35%", "35%"]}
+          width={["100%"]}
           min-height={"100vh"}
           textAlign={"left"}
           my={"6"}
@@ -153,7 +153,7 @@ const DescriptionPage = () => {
                 colorScheme={"blackAlpha"}
                 disabled={!size}
                 onClick={handleCart}
-              >
+                >
                 {!size ? "Please Select A Size" : "ADD TO BAG"}
               </Button>
             </Box>

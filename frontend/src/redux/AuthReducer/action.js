@@ -37,8 +37,8 @@ const profile = (payload) => (dispatch) => {
   dispatch({ type: types.PROFILE_R });
   const options = {
     method: "GET",
-    url: `https://nareshrajput-auth.onrender.com/auth/${payload.email}`,
-    headers: { Authorization: `Bearer ${payload.token}` },
+    url: `http://localhost:5000/api/auth/profile/${payload.username}`,
+    headers: { token: `Bearer ${payload.token}` },
   };
   return axios(options)
     .then((r) => {

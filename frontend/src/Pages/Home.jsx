@@ -1,14 +1,14 @@
 import {
   Box,
-  Button,
-  Flex,
-  Heading,
+  // Button,
+  // Flex,
+  // Heading,
   // Image,
-  Stack,
-  Text,
+  // Stack,
+  // Text,
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Carousel from "../components/Carousel/Carousel";
 import Loading from "../components/Loading/Loading";
 import Trending from "../components/Trends/Trending";
@@ -17,7 +17,7 @@ import Navbar from "../components/Navbar/Navbar"
 
 const Home = () => {
   const loading = useSelector((store) => store.pagesReducer.isLoading);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <div>
       <Navbar/> <br/>
@@ -81,7 +81,7 @@ const Home = () => {
           </Box>
         </Stack>
       </Box> */}
-      <Box my={"10"}>
+      {/* <Box my={"10"}>
         <Stack
           spacing={"5"}
           mx={"7"}
@@ -128,7 +128,7 @@ const Home = () => {
             Sign Up
           </Button>
         </Flex>
-      </Box>
+      </Box> */}
     </div>
   );
 };

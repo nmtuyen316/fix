@@ -19,7 +19,7 @@ const displayRazorpay = async (
   amount,
   form,
   navigate,
-  profileImg,
+  // profileImg,
   dispatch
 ) => {
   const { firstname, lastname, email, mobile } = form;

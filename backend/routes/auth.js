@@ -10,11 +10,19 @@ const User = require('../models/UserModel')
 // @route GET api/auth
 // @desc Check if user is logged in
 // @access Public
-router.get('/', verifyToken, async (req, res) => {
+router.get('/profile/:username', verifyToken, async (req, res) => {
 	try {
-		if (!user[0])
+		const user = await User.findOne({ username: req.params.username });
+		if (!user)
 			return res.status(400).json({ success: false, message: 'User not found' })
-		res.json({ success: true })
+	const data = {
+		id: user._id,
+        username: user.username,
+		name: user.name,
+        email: user.email,
+		point: user.point
+	}
+		res.status(200).json({ ...data, success: true });
 	} catch (error) {
 		console.log(error)
 		res.status(500).json({ success: false, message: 'Internal server error' })

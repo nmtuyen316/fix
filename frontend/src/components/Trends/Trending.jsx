@@ -2,17 +2,17 @@ import { Box, Heading } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
-import { getMensData } from "../../redux/PagesReducer/action";
+import { getHomeData } from "../../redux/PagesReducer/action";
 import { HomeDis } from "../HomeDisplay/HomeDisplay";
 const Trending = () => {
   const dispatch = useDispatch();
-  const mensD = useSelector((store) => store.pagesReducer.mensD);
+  const homeD = useSelector((store) => store.pagesReducer.homeD);
 
   useEffect(() => {
-    if (mensD?.length === 0) {
-      dispatch(getMensData());
+    if (homeD?.length === 0) {
+      dispatch(getHomeData());
     }
-  }, [dispatch, mensD?.length]);
+  }, [dispatch, homeD?.length]);
 
   var settings = {
     dots: true,
@@ -53,8 +53,8 @@ const Trending = () => {
       <Box border="1px solid beige">
         <Heading align={"left"}> TOP PICS FOR YOU</Heading>
         <Slider {...settings}>
-          {mensD?.length > 0 &&
-            mensD.map((item) => {
+          {homeD?.length > 0 &&
+            homeD.map((item) => {
               return <HomeDis key={item.key} item={item} />;
             })}
         </Slider>

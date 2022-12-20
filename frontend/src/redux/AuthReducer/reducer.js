@@ -3,7 +3,7 @@ import * as types from "./actionType";
 const initialState = {
   isAuth: getLocalData("token") ? true : false,
   token: getLocalData("token") || "",
-  profileData: [],
+  profileData:[],
   RegisterUser: [],
   isLoading: false,
   isError: false,

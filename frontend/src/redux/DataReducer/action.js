@@ -3,7 +3,7 @@ import axios from "axios";
 const getData = (params) => (dispatch) => {
   dispatch({ type: types.GET_DATA_R });
   return axios
-    .get("https://nareshrajput-sportsk.up.railway.app/allproducts", params)
+    .get("http://localhost:5000/api/products", params)
     .then((res) => {
       dispatch({ type: types.GET_DATA_S, payload: res.data });
     })
@@ -11,6 +11,7 @@ const getData = (params) => (dispatch) => {
       dispatch({ type: types.GET_DATA_F });
     });
 };
+
 const updateData = (id, payload) => (dispatch) => {
   dispatch({ type: types.UPDATE_DATA_R });
   return axios
