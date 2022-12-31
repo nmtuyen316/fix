@@ -94,6 +94,7 @@ export default function Carousel() {
           background={`url(${isLargerThan ? (card.image[0]):(card.image[1])}) center/contain no-repeat`}
           backgroundSize={isLargerThan?"90%" : "100%"}
           >
+<<<<<<< Updated upstream
           {/* This is the block if we need to change, to customize the caption */}
                 <Button
                   fontSize={["xs", "sm", "md", "lg", "xl"]}
@@ -113,6 +114,70 @@ export default function Carousel() {
                   <a href="tel:+84369253220">Liên hệ ngay</a>
                 </Button>
         </Box>
+=======
+            {/* This is the block if we need to change, to customize the caption */}
+            <Container
+              size="container.lg"
+              height="500px"
+              m="auto"
+              position="relative"
+            >
+              <Stack
+                spacing={6}
+                w={"full"}
+                maxW={"lg"}
+                position="absolute"
+                top="50%"
+                transform="translate(0, -50%)"
+              >
+                <Heading fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}>
+                  {card.title}
+                </Heading>
+                <Text fontSize={["sm", "md", "lg", "xl"]} color="">
+                  {card.text}
+                </Text>
+                <Flex gap={isLargerThan ? "2rem" : "1rem"} justify={"center"}>
+                  <Button
+                    fontSize={["xs", "sm", "md", "lg", "xl"]}
+                    bg="black"
+                    color="whitesmoke"
+                    _hover={{
+                      border: "1px solid black",
+                      background: "none",
+                      color: "blue",
+                    }}
+                  >
+                    <Link to="/men">MENS SHOP </Link>
+                  </Button>
+                  <Button
+                    fontSize={["10px", "sm", "md", "lg"]}
+                    bg="black"
+                    color="whitesmoke"
+                    _hover={{
+                      border: "1px solid black",
+                      background: "none",
+                      color: "blue",
+                    }}
+                  >
+                    <Link to="/women">WOMENS SHOP </Link>
+                  </Button>
+                  <Button
+                    fontSize={["10px", "sm", "md", "lg"]}
+                    bg="black"
+                    color="whitesmoke"
+                    _hover={{
+                      border: "1px solid black",
+                      background: "none",
+                      color: "blue",
+                    }}
+                  >
+                    <Link to="/shoes">SPORTS KIT </Link>
+                  </Button>
+                </Flex>
+              </Stack>
+            </Container>
+          </Box>
+>>>>>>> Stashed changes
         ))}
       </Slider>
     </Box>
