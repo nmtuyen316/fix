@@ -1,22 +1,14 @@
-import { Box, Flex, HStack, Icon, Image, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { Box, Flex, HStack, Image, Text } from "@chakra-ui/react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 // import { AiOutlineStar } from "react-icons/ai";
-import { StarIcon } from "@chakra-ui/icons";
 
 const ProductDis = ({ item }) => {
   const navigate = useNavigate();
-  const { _id, name, color, gender, images, final_price, reviews, rating } =
+  const { _id, name, color, images, final_price } =
     item;
-  const [img, setImg] = useState(images[0]);
   const handleDes = () => {
     navigate(`/description/${_id}`);
-  };
-  const ChangeHoverImage = () => {
-    setImg(images[1]);
-  };
-  const OriginalImage = () => {
-    setImg(images[0]);
   };
 
   return (
@@ -25,13 +17,11 @@ const ProductDis = ({ item }) => {
         key={_id}
         width={"95%"}
         m="auto"
-        onMouseEnter={ChangeHoverImage}
-        onMouseLeave={OriginalImage}
         onClick={handleDes}
         my={"3"}
       >
         <Box overflow={"hidden"} position={"relative"}>
-          <Image className="imageAnimation" src={img} alt={name} />
+          <Image src={images[0]} alt={name} />
         </Box>
         <Box
           textAlign={"left"}
@@ -39,7 +29,6 @@ const ProductDis = ({ item }) => {
           fontSize={["xs", "sm", "md", "md"]}
         >
           <Text>{name}</Text>
-          <Text>{gender}</Text>
           <Text>{color}</Text>
         </Box>
         <Flex
@@ -48,14 +37,10 @@ const ProductDis = ({ item }) => {
           fontWeight={"medium"}
           align={"center"}
         >
-          <Text as={Flex} alignItems={"center"}  fontSize={["xs", "sm", "md", "md"]}>
-            <Icon as={StarIcon} color="yellow.500" /> : {rating}
-          </Text>
-          <Text fontSize={["xs", "sm", "md", "md"]}>Review : ({reviews}) </Text>
         </Flex>
         <HStack justify={"left"}>
           <Text fontWeight={"semibold"} fontSize={["sm", "md", "lg", "xl"]}>
-            ₹{final_price}.00
+            {final_price} ET
           </Text>
         </HStack>
       </Box>

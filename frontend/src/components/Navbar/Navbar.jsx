@@ -14,10 +14,9 @@ import {
 } from "@chakra-ui/react";
 import logo from "../../img/favicon.ico";
 //import { FiUser } from "react-icons/fi";
-import { BsSuitHeart } from "react-icons/bs";
 import { BsBag } from "react-icons/bs";
 import { DarkModeBtn } from "../DarkMode/DarkModeBtn";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import SideMenu from "../Sidebar/Sidebar";
 import Profile from "../Profile/Profile";
 import { profile } from "../../redux/AuthReducer/action";
@@ -30,7 +29,6 @@ const Navbar = () => {
   const profileData = useSelector((state) => state.AuthReducer?.profileData);
   const auth = useSelector((state) => state.AuthReducer.isAuth);
   const cart = useSelector((store) => store.cart.cart);
-  const wishlist = useSelector((store) => store.wishReducer.wishlist);
   const { colorMode } = useColorMode();
   const baseStyle = {
     color: "black",
@@ -61,17 +59,18 @@ const Navbar = () => {
   const handleCart = () => {
     navigate("/cart");
   };
-  const handleHeart = () => {
-    navigate("/wishlist");
-  };
   const handleSignup = () => {
     navigate("/register");
   };
   return (
-    <div className="Navbar">
+    <div className="Navbar" 
+    style={{backgroundColor:colorMode === "dark" ? "black" : "cyan",
+            position:'sticky',
+            top:0,
+            zIndex:999}}>
       <Flex fontWeight="bold">
         <HStack onClick={handleHome} cursor={"pointer"}>
-          <Image width={["120px"]} ml={100} src={logo} alt="logo" />
+          <Image width={["110px"]} ml={"5%"} src={logo} alt="logo" />
         </HStack>
         <Spacer />
         {isLargerThan ? (
@@ -88,7 +87,7 @@ const Navbar = () => {
                 Home
               </Text>
             </NavLink>
-            <NavLink
+            {/* <NavLink
               style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
               to="/allproducts"
             >
@@ -99,7 +98,7 @@ const Navbar = () => {
               >
                 AllProducts
               </Text>
-            </NavLink>
+            </NavLink> */}
           </HStack>
         ) : null}
 
@@ -108,14 +107,14 @@ const Navbar = () => {
         <HStack>
           {auth ? (
             <>
-            <Box>
-              <Text color={"yellow.400"}>
-                {profileData.length !== 0 ? profileData.point : ""} Điểm ET
-              </Text>
-            </Box>
-            <Box>
-              <Profile colorMode={colorMode} />
-            </Box>
+              <Box>
+                <Text color={"yellow.400"}>
+                  {profileData.length !== 0 ? profileData.point : ""} Điểm ET
+                </Text>
+              </Box>
+              <Box>
+                <Profile colorMode={colorMode} />
+              </Box>
             </>
           ) : (
             <Button
@@ -131,59 +130,34 @@ const Navbar = () => {
               Sign up
             </Button>
           )}
-          <Box mr={["5", "6", "7", "9"]}>
-            {" "}
-            <DarkModeBtn />
-          </Box>
-          <Box onClick={handleHeart}>
-            <Flex
-              onClick={handleCart}
-              alignItems={"center"}
-              alignContent={"center"}
-              justifyContent={"center"}
-            >
-              <Icon
-                w={6}
-                h={6}
-                my="4"
-                mx="3"
-                as={BsSuitHeart}
-                cursor={"pointer"}
-              />
-              <Text
-                position="relative"
-                top="-15px"
-                left="-25px"
-                borderRadius="50%"
-                p="0rem 0.3rem"
-                bg="blue.500"
-                color="white"
+          {isLargerThan && 
+          <>
+            <Box mr={["5", "6", "7", "9"]}>
+              {" "}
+              <DarkModeBtn />
+            </Box>
+            <Box>
+              <Flex
+                onClick={handleCart}
+                alignItems={"center"}
+                alignContent={"center"}
+                justifyContent={"center"}
               >
-                {wishlist ? wishlist.length : 0}
-              </Text>
-            </Flex>
-          </Box>
-          <Box>
-            <Flex
-              onClick={handleCart}
-              alignItems={"center"}
-              alignContent={"center"}
-              justifyContent={"center"}
-            >
-              <Icon w={6} h={6} my="4" mx="3" as={BsBag} cursor={"pointer"} />
-              <Text
-                position="relative"
-                top="-15px"
-                left="-25px"
-                borderRadius="50%"
-                p="0rem 0.3rem"
-                bg="blue.500"
-                color="white"
-              >
-                {cart ? cart.length : 0}
-              </Text>
-            </Flex>
-          </Box>
+                <Icon w={6} h={6} my="4" mx="3" as={BsBag} cursor={"pointer"} />
+                <Text
+                  position="relative"
+                  top="-15px"
+                  left="-25px"
+                  borderRadius="50%"
+                  p="0rem 0.3rem"
+                  bg="blue.500"
+                  color="white"
+                >
+                  {cart ? cart.length : 0}
+                </Text>
+              </Flex>
+            </Box>
+          </>}
           <Box> {!isLargerThan && <SideMenu colorMode={colorMode} />}</Box>
         </HStack>
       </Flex>

@@ -14,7 +14,6 @@ import Carousel from "../components/Carousel/Carousel";
 import CheckOutPage from "../components/checkout/CheckOutPage";
 import Empty from "../components/Empty/EmptyFunction";
 import Navbar from "../components/Navbar/Navbar";
-import Trending from "../components/Trends/Trending";
 import { decQty, incQty, removeItem } from "../redux/CartReducer/action";
 
 const Cart = () => {
@@ -155,9 +154,6 @@ const Cart = () => {
       <Box my={"5rem"}>
         <Box display={"none"}>
           <Carousel />
-        </Box>
-        <Box>
-          <Trending />
         </Box>
       </Box>
     </>

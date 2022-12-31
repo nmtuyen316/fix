@@ -1,4 +1,3 @@
-import { AiFillHeart } from "react-icons/ai";
 import {
   Badge,
   Box,
@@ -8,7 +7,6 @@ import {
   Image,
   Text,
   useMediaQuery,
-  useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useEffect } from "react";
@@ -17,12 +15,10 @@ import { useParams } from "react-router-dom";
 import { getData } from "../../redux/DataReducer/action";
 import { ListItem, UnorderedList } from "@chakra-ui/react";
 import { addToCart } from "../../redux/CartReducer/action";
-import { addToWishList } from "../../redux/WishReducer/action";
 import Navbar from "../Navbar/Navbar";
 // import { BsBagFill } from "react-icons/bs";
 const DescriptionPage = () => {
   const { id } = useParams();
-  const toast = useToast();
   const products = useSelector((store) => store.dataReducer.products);
   const dispatch = useDispatch();
   const [currentProducts, setCurrentProducts] = useState({});
@@ -48,12 +44,6 @@ const DescriptionPage = () => {
 
     dispatch(addToCart(payload));
   };
-  const handleWishList = () => {
-    let payload = {
-      ...currentProducts,
-    };
-    dispatch(addToWishList(payload, toast));
-  };
   return (
     <div key={currentProducts._id}>
       <Navbar /> <br />
@@ -65,27 +55,6 @@ const DescriptionPage = () => {
           {/* ------------------------------ 1 image------------------------------------ */}
           <Box>
             <Image w={"100%"} src={currentProducts.images?.[0]} />
-          </Box>
-
-          {/* ------------------------------ 4 images------------------------------------ */}
-
-          <Box>
-            <Flex>
-              <Box>
-                <Image src={currentProducts.images?.[1]} />
-              </Box>
-              <Box>
-                <Image src={currentProducts.images?.[2]} />
-              </Box>
-            </Flex>
-            <Flex>
-              <Box>
-                <Image src={currentProducts.images?.[3]} />
-              </Box>
-              <Box>
-                <Image src={currentProducts.images?.[4]} />
-              </Box>
-            </Flex>
           </Box>
 
           {/* --------------------------------------------------------------------- */}
@@ -103,9 +72,6 @@ const DescriptionPage = () => {
             <Box mx={"4"} my={"6"} fontSize={["sm", "md", "lg", "xl"]}>
               <Text fontSize={"lg"}>
                 MRP :
-                <span style={{ textDecoration: "line-through" }}>
-                  ₹{currentProducts.original_price}.00
-                </span>
                 <span
                   style={{
                     color: "red",
@@ -113,7 +79,7 @@ const DescriptionPage = () => {
                     marginLeft: "5px",
                   }}
                 >
-                  ₹{currentProducts.final_price}.50
+                  {currentProducts.final_price} ET
                 </span>
               </Text>
               <Badge color={"grey"} fontWeight={"bold"}>
@@ -157,17 +123,6 @@ const DescriptionPage = () => {
                 {!size ? "Please Select A Size" : "ADD TO BAG"}
               </Button>
             </Box>
-            <Box mt="1rem" align={"left"}>
-              <Button
-                width={["100%", "100%", "70%", "70%"]}
-                bg="white"
-                border={"1px solid black"}
-                color="black"
-                onClick={handleWishList}
-              >
-                ADD TO FAVOURITE <AiFillHeart color="red" size={"20px"} />
-              </Button>
-            </Box>
           </Box>
           <hr />
           {/* ------------------------------details Box End------------------------------------ */}
@@ -180,13 +135,7 @@ const DescriptionPage = () => {
 
             <UnorderedList spacing={"3"} my={"4"}>
               <ListItem fontSize={"md"} fontWeight={"semibold"}>
-                Gender : {currentProducts.gender}{" "}
-              </ListItem>
-              <ListItem fontSize={"md"} fontWeight={"semibold"}>
                 Colour : {currentProducts.color}{" "}
-              </ListItem>
-              <ListItem fontSize={"md"} fontWeight={"semibold"}>
-                Rating : {currentProducts.rating}{" "}
               </ListItem>
             </UnorderedList>
           </Box>

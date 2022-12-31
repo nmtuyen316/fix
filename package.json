@@ -21,5 +21,8 @@
   "homepage": "https://github.com/nmtuyen316/fix#readme",
   "devDependencies": {
     "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "firebase": "^9.15.0"
   }
 }
