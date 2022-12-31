@@ -13,7 +13,6 @@ import React from "react";
 import portfolio from "../../img/portfolio.png";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import logo from '../../img/favicon.ico';
-import './footer.css'
 // import { GiCondorEmblem } from "react-icons/gi";
 import { Link } from "react-router-dom";
 const Footer = () => {
