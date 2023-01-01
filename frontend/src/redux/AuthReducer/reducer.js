@@ -45,6 +45,14 @@ const reducer = (state = initialState, action) => {
         profileData: payload,
       };
     }
+    case types.PROFILE_F: return {
+      ...state,
+      isLoading: false,
+      isAuth: false,
+      isError: true,
+      profileData: [],
+      token: "",
+    };
     default:
       return state;
   }

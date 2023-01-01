@@ -15,6 +15,7 @@ const register = (payload, toast) => (dispatch) => {
     .catch((e) => {
       setToast(toast, e.response.data.message, "error");
       dispatch({ type: types.REGISTER_F, payload: e });
+      return Promise.reject(e);
     });
 };
 
@@ -30,6 +31,7 @@ const login = (payload, toast) => (dispatch) => {
     .catch((e) => {
       setToast(toast, e.response.data.message, "error");
       dispatch({ type: types.LOGIN_F, payload: e });
+      return Promise.reject(e);
     });
 };
 
