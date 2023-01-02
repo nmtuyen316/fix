@@ -45,14 +45,37 @@ const reducer = (state = initialState, action) => {
         profileData: payload,
       };
     }
-    case types.PROFILE_F: return {
+    case types.PROFILE_F: {
+      localStorage.removeItem("token");
+      localStorage.removeItem("userInfo");
+      return {
       ...state,
       isLoading: false,
       isAuth: false,
       isError: true,
       profileData: [],
       token: "",
-    };
+    }}
+    case types.LOGOUT_S:{
+      localStorage.removeItem("token");
+      localStorage.removeItem("userInfo");
+      return{
+        ...state,
+        isLoading:false,
+        isAuth:false,
+        profileData:[],
+        token:""
+      }
+    }
+    case types.REFRESH_TOKEN_SECRET:{
+      saveLocalData("token",payload)
+      return{
+        ...state,
+        token: payload,
+        isAuth: true,
+        isError:false
+      }
+    }
     default:
       return state;
   }

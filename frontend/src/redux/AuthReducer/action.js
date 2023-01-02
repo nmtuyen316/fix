@@ -3,7 +3,7 @@ import { setToast } from "../../components/Other/CheckProperty";
 import { saveLocalData } from "../../utils/localStorage";
 import * as types from "./actionType";
 import JWTaxios from "../../services/api";
-
+axios.defaults.withCredentials=true
 const register = (payload, toast) => (dispatch) => {
   dispatch({ type: types.REGISTER_R });
   return axios
@@ -38,12 +38,7 @@ const login = (payload, toast) => (dispatch) => {
 
 const profile = (payload) => (dispatch) => {
   dispatch({ type: types.PROFILE_R });
-  const options = {
-    method: "GET",
-    url: `http://localhost:5000/api/auth/profile/${payload.username}`,
-    headers: { token: `Bearer ${payload.token}` },
-  };
-  return JWTaxios(options)
+  return JWTaxios.get(`/auth/profile/${payload.username}`, { headers: { token: `Bearer ${payload.token}` } })
     .then((r) => {
       dispatch({
         type: types.PROFILE_S,
@@ -52,18 +47,19 @@ const profile = (payload) => (dispatch) => {
     })
     .catch((e) => dispatch({ type: types.PROFILE_F, payload: e }));
 };
-const logout = (payload) => (dispatch) => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("userInfo");
-  dispatch({ type: types.LOGOUT_R});
-  const options = {
-    method: "POST",
-    url: `http://localhost:5000/api/auth/logout`,
-    headers: { token: `Bearer ${payload.token}`},
-  };
-  return JWTaxios(options);
-} 
 
-export { login, register, profile,logout };
+const logout = (payload) => (dispatch) => {
+  return JWTaxios.post("/auth/logout", {}, { headers: { token: `Bearer ${payload.token}` } })
+    .then((r) => { dispatch({ type: types.LOGOUT_S }) });
+}
+
+const refresh = (accessToken) => (dispatch) => {
+    dispatch({
+      type: types.REFRESH_TOKEN_SECRET,
+      payload: accessToken
+    })
+}
+
+export { login, register, profile, logout, refresh };
 
 
