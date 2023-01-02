@@ -2,6 +2,7 @@ import axios from "axios";
 import { setToast } from "../../components/Other/CheckProperty";
 import { saveLocalData } from "../../utils/localStorage";
 import * as types from "./actionType";
+import JWTaxios from "../../services/api";
 
 const register = (payload, toast) => (dispatch) => {
   dispatch({ type: types.REGISTER_R });
@@ -42,7 +43,7 @@ const profile = (payload) => (dispatch) => {
     url: `http://localhost:5000/api/auth/profile/${payload.username}`,
     headers: { token: `Bearer ${payload.token}` },
   };
-  return axios(options)
+  return JWTaxios(options)
     .then((r) => {
       dispatch({
         type: types.PROFILE_S,
@@ -60,7 +61,7 @@ const logout = (payload) => (dispatch) => {
     url: `http://localhost:5000/api/auth/logout`,
     headers: { token: `Bearer ${payload.token}`},
   };
-  return axios(options);
+  return JWTaxios(options);
 } 
 
 export { login, register, profile,logout };

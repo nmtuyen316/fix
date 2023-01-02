@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import {theme} from "./theme/theme.config"
+import setup from "./services/setup";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -20,5 +21,5 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
+setup(store)
 reportWebVitals();
