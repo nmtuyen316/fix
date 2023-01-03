@@ -5,6 +5,8 @@ import {
   applyMiddleware,
 } from "redux";
 import thunk from "redux-thunk";
+import {persistStore,persistReducer} from 'redux-persist'
+import storage from "redux-persist/lib/storage";
 import { dataReducer } from "./DataReducer/reducer";
 import { reducer as AuthReducer } from "./AuthReducer/reducer";
 import { cartReducer } from "./CartReducer/reducer";
@@ -18,10 +20,15 @@ const rootReducer = combineReducers({
   AuthReducer,
   pagesReducer,
 });
-
+const persistConfig = {
+  key:'root',
+  storage
+}
+const persistedReducer = persistReducer(persistConfig,rootReducer)
 const store = legacy_createStore(
-  rootReducer,
+  persistedReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
+const persistor = persistStore(store)
 
-export { store };
+export { store,persistor };

@@ -13,7 +13,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Carousel from "../components/Carousel/Carousel";
 import CheckOutPage from "../components/checkout/CheckOutPage";
 import Empty from "../components/Empty/EmptyFunction";
-import Navbar from "../components/Navbar/Navbar";
 import { decQty, incQty, removeItem } from "../redux/CartReducer/action";
 
 const Cart = () => {
@@ -55,7 +54,6 @@ const Cart = () => {
 
   return (
     <>
-     <Navbar/> <br/>
       {cart.length === 0 ? (
         <Empty />
       ) : (
