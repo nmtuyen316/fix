@@ -37,7 +37,7 @@ const Cart = () => {
     if (Number(str)) {
       return Number(str);
     }
-    let arr = str.includes(",") ? str.split(",") : [];
+    let arr = str?.includes(",") ? str.split(",") : [];
     let converting_string = arr.reduce((a, c) => a + c, "");
     let result = Number(converting_string);
     return result;
@@ -80,6 +80,7 @@ const Cart = () => {
               {cart?.length > 0 &&
                 cart.map((item) => (
                   <Flex
+                  key={item._id}
                     border="3px solid beige"
                     m="auto"
                     my={"4"}

@@ -102,7 +102,7 @@ router.post('/login', async (req, res) => {
 		const accessToken = jwt.sign(
 			{ userID: user._id },
 			process.env.ACCESS_TOKEN_SECRET,{
-				expiresIn:"1h"
+				expiresIn:"30s"
 			}
 		)
 		const refreshtoken = jwt.sign({userID: user._id},
@@ -129,27 +129,26 @@ router.post('/login', async (req, res) => {
 })
 router.post('/refresh',async (req,res)=>{
 	const refreshtoken = req.cookies.refresh_token;
+	const decoded = refreshtoken && jwt.verify(refreshtoken,process.env.REFRESH_TOKEN_SECRET);
 
-	const decoded = jwt.verify(refreshtoken,process.env.REFRESH_TOKEN_SECRET);
-
-	const existsRefeshtoken = User.findOne({refreshtoken: decoded});
+	const user = await User.findOne({_id: decoded?.userID, refreshtoken: refreshtoken});
 
 	if(!refreshtoken) 
 		return res.status(401).json("Bạn chưa đăng nhập");
-	if(!existsRefeshtoken[0]) 
+	if(!user) 
 		return res.status(403).json("Không tồn tại refreshtoken");
-	jwt.verify(refreshtoken,process.env.REFRESH_TOKEN_SECRET,(err,user)=>{
+	jwt.verify(refreshtoken,process.env.REFRESH_TOKEN_SECRET, async (err,decode)=>{
 		if(err){
 			console.log(err);
 		}
 		const newAccessToken = jwt.sign(
-			{ userID: user._id },
+			{ userID: decode.userID },
 			process.env.ACCESS_TOKEN_SECRET,{
-				expiresIn:"1h"
+				expiresIn:"30s"
 			}
 		)
 		const newRefreshToken = jwt.sign(
-			{ userID: user._id },
+			{ userID: decode.userID },
 			process.env.REFRESH_TOKEN_SECRET,{
 				expiresIn:"365d"
 			}
@@ -160,6 +159,8 @@ router.post('/refresh',async (req,res)=>{
 			path:"/",
 			sameSite:"strict"
 		})
+		user.refreshtoken = newRefreshToken;
+		await user.save();
 		res.status(200).json({accessToken: newAccessToken})
 	});
 })

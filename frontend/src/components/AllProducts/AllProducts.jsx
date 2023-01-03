@@ -48,7 +48,7 @@ const AllProducts = () => {
                 >
                     {products?.length > 0 &&
                         products?.map((item) => {
-                            return <ProductDis key={item.key} item={item} />;
+                            return <ProductDis key={item._id} item={item} />;
                         })}
                 </Grid>
             </Box>
