@@ -5,8 +5,11 @@ import {
   Flex,
   Heading,
   Icon,
+  Link,
   TagLeftIcon,
   // Spacer,
+  Grid,
+  SimpleGrid,
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
@@ -15,17 +18,19 @@ import portfolio from "../../img/portfolio.png";
 import { BsGithub, BsYoutube, BsInstagram, BsFacebook } from "react-icons/bs";
 import logo from '../../img/favicon.ico';
 // import { GiCondorEmblem } from "react-icons/gi";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 const Footer = () => {
   const [isLargerThan] = useMediaQuery("(min-width: 768px)");
   const [isSmallerThan] = useMediaQuery("(min-width: 468px)");
+
+
 
   return (
     <div>
       <Box
         bg="black"
         color="whitesmoke"
-        height={isSmallerThan ? "50vh" : "50vh"}
+        height={isSmallerThan ? "auto" : "auto"}
         pt="3rem"
         lineHeight="2rem"
       >
@@ -36,24 +41,57 @@ const Footer = () => {
           fontSize={["sm", "md", "md", "md"]}
           flexDirection={isSmallerThan ? "row" : "column"}
         >
-          <Box border={"4px solid grey"} borderRadius={"20px"} height={"150px"} marginTop={"10px"}>
-            <img src={logo} width={150} style={{translate:"0px -6px"}} ></img>
+          <Box border={isSmallerThan?"4px solid grey":"0"} borderRadius={"20px"} height={isSmallerThan ?"150px":"130px"} marginTop={"10px"}>
+          <SimpleGrid columns={1} spacingX={"auto"} spacingY={"auto"}>
+            <img src={logo} width={150} style={{ translate: isSmallerThan ? "0px -6px" : "95% -20%" }}  ></img>
+          </SimpleGrid>
           </Box>
 
-          <Box as={Flex} flexDirection="column" className="contact">
-            <Heading color={"grey"}>Liên Hệ</Heading>
-            <Text as={Link} to="/allproducts?gender=MEN">Sđt: 0359284818 - 0369253220.</Text>
-            <Text as={Link} to="/allproducts?gender=WOMEN">Email: eagleteal.repair@gmail.com</Text>
-            <Text as={Link} to="/allproducts?category=shoes" >Shoes Collection</Text>
-            <Text as={Link} to="/allproducts?category=clothes">Clothes Collection</Text>
+          <Box as={Flex} flexDirection="column" marginBottom={"15px"}>
+          <SimpleGrid columns={1} spacingX={"10px"} spacingY={"10px"}>
+            <Heading color={"grey"}>Contact</Heading>
+            <Text to="/allproducts?gender=MEN">Sđt: 0359284818 - 0369253220</Text>
+            <Text to="/allproducts?gender=WOMEN">Email: eagleteal.repair@gmail.com</Text>
+            {/* <Text to="/allproducts?category=shoes" >Shoes Collection</Text>
+            <Text to="/allproducts?category=clothes">Clothes Collection</Text> */}
+          </SimpleGrid>  
           </Box>
 
-          <Box as={Flex} flexDirection="column" color={"grey"}>
-            <Heading>Information</Heading>
-          </Box>
 
           <Box as={Flex} flexDirection="column" color={"grey"}>
             <Heading>Nextwork</Heading>
+            <Box mt="1rem" display={"flex"} gap="1rem" justifyContent={"space-around"}
+            >
+              <SimpleGrid columns={isSmallerThan ? 2 : 3} spacingX={"30px"} spacingY={"20px"}>
+                <Box width={"100%"}>
+                  <Link
+                    href="https://www.linkedin.com/in/naresh-rajput/"
+                    target={"_blank"}
+                    rel="noreferrer"
+                  >
+                    <Icon w={9} h={9} as={BsInstagram} />
+                  </Link>
+                </Box>
+                <Box width={"95%"}>
+                  <Link
+                    href="https://github.com/nmewada01"
+                    target={"_blank"}
+                    rel="noreferrer"
+                  >
+                    <Icon w={9} h={9} my="0rem" as={BsFacebook} bg="black" />
+                  </Link>
+                </Box>
+                <Box width={"95%"}>
+                  <Link
+                    href="https://nmewada01.github.io/portfolio/"
+                    target={"_blank"}
+                    rel="noreferrer"
+                  >
+                    <Icon w={9} h={9} my="0rem" as={BsYoutube} />
+                  </Link>
+                </Box>
+              </SimpleGrid>
+            </Box>
           </Box>
 
           {/* {isSmallerThan ? (
@@ -76,36 +114,10 @@ const Footer = () => {
               <Text>Company Apps</Text>
             </Box>
           ) : null} */}
-          <Box mt="1rem" display={"flex"} gap="3rem" justifyContent={"space-around"} position={"absolute"}
-            style={{translate:"515px 19px"}}
-          >
-            <a
-              href="https://www.linkedin.com/in/naresh-rajput/"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <Icon w={9} h={9} my="1rem" as={BsInstagram} />
-            </a>
-            <a
-              href="https://github.com/nmewada01"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <Icon w={9} h={9} my="1rem" as={BsFacebook} bg="black"/>
-            </a>
-            
-          </Box>
 
           <Box mt="1rem" display={"flex"} gap="3rem" justifyContent={"space-around"} position={"absolute"}
-            style={{translate:"473px 90px"}} 
+            style={{ translate: "473px 90px" }}
           >
-            <a
-              href="https://nmewada01.github.io/portfolio/"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <Icon w={9} h={9} my="1rem" as={BsYoutube} />
-            </a>
           </Box>
 
         </Flex>
