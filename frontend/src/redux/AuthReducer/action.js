@@ -50,7 +50,9 @@ const profile = (payload) => (dispatch) => {
 
 const logout = (payload) => (dispatch) => {
   return JWTaxios.post("/auth/logout", {}, { headers: { token: `Bearer ${payload.token}` } })
-    .then((r) => { dispatch({ type: types.LOGOUT_S }) });
+    .then((r) => { 
+      dispatch({ type: types.LOGOUT_S }) 
+    });
 }
 
 const refresh = (accessToken) => (dispatch) => {
