@@ -95,7 +95,7 @@ const Footer = () => {
             style={{ translate: "473px 90px" }}
           >
           </Box>
-
+          
         </Flex>
       </Box>
     </div>
