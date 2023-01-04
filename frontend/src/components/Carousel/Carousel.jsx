@@ -106,8 +106,8 @@ export default function Carousel() {
                   left= "9%"
                   _hover={{
                     border: "1px solid black",
-                    background: "none",
-                    color: "blue",
+                    background: "#555d5f",
+                    color: "whitesmoke",
                   }}
                 >
                   <a href="tel:+84369253220">Liên hệ ngay</a>

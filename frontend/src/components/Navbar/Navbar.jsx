@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate,useLocation } from "react-router-dom";
 import {
   Box,
   Button,
@@ -26,6 +26,7 @@ const Navbar = () => {
   const [isLargerThan] = useMediaQuery("(min-width: 768px)");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
   const profileData = useSelector((state) => state.AuthReducer?.profileData);
   const auth = useSelector((state) => state.AuthReducer.isAuth);
   const cart = useSelector((store) => store.cart.cart);
@@ -62,9 +63,12 @@ const Navbar = () => {
   const handleSignup = () => {
     navigate("/register");
   };
+  const handleLogin =() =>{
+    navigate("/login");
+  };
   return (
     <div className="Navbar" 
-    style={{backgroundColor:colorMode === "dark" ? "black" : "cyan",
+    style={{backgroundColor:colorMode === "dark" ? "black" : "aquamarine",
             position:'sticky',
             top:0,
             zIndex:999}}>
@@ -108,7 +112,7 @@ const Navbar = () => {
           {auth ? (
             <>
               <Box>
-                <Text color={"yellow.400"}>
+                <Text color={"rgba(110, 6, 6, 0.922)"}>
                   {profileData.length !== 0 ? profileData.point : ""} Điểm ET
                 </Text>
               </Box>
@@ -117,12 +121,26 @@ const Navbar = () => {
               </Box>
             </>
           ) : (
+            location.pathname ==="/register"?
+            <Button
+            bg={"black"}
+            color={"whitesmoke"}
+            border={"1px solid beige"}
+            _hover={{
+              bg: "#555d5f",
+              color: "teal",
+            }}
+            onClick={handleLogin}
+          >
+            Login
+          </Button>
+          :
             <Button
               bg={"black"}
               color={"whitesmoke"}
               border={"1px solid beige"}
               _hover={{
-                bg: "none",
+                bg: "#555d5f",
                 color: "teal",
               }}
               onClick={handleSignup}

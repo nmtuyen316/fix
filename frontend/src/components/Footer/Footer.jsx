@@ -1,30 +1,25 @@
 import {
-  Avatar,
-  border,
   Box,
   Flex,
   Heading,
   Icon,
   Link,
-  TagLeftIcon,
-  // Spacer,
-  Grid,
   SimpleGrid,
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
 import React from "react";
-import portfolio from "../../img/portfolio.png";
-import { BsGithub, BsYoutube, BsInstagram, BsFacebook } from "react-icons/bs";
+import { BsYoutube, BsInstagram, BsFacebook } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import logo from '../../img/favicon.ico';
 // import { GiCondorEmblem } from "react-icons/gi";
 // import { Link } from "react-router-dom";
 const Footer = () => {
-  const [isLargerThan] = useMediaQuery("(min-width: 768px)");
+  const navigate = useNavigate();
   const [isSmallerThan] = useMediaQuery("(min-width: 468px)");
-
-
-
+  const handleHome = () => {
+    navigate("/");
+  };
   return (
     <div>
       <Box
@@ -41,20 +36,25 @@ const Footer = () => {
           fontSize={["sm", "md", "md", "md"]}
           flexDirection={isSmallerThan ? "row" : "column"}
         >
-          <Box border={isSmallerThan?"4px solid grey":"0"} borderRadius={"20px"} height={isSmallerThan ?"150px":"130px"} marginTop={"10px"}>
-          <SimpleGrid columns={1} spacingX={"auto"} spacingY={"auto"}>
-            <img src={logo} width={150} style={{ translate: isSmallerThan ? "0px -6px" : "95% -20%" }}  ></img>
-          </SimpleGrid>
+          <Box onClick={handleHome} border={isSmallerThan ? "4px solid grey" : "0"} borderRadius={"20px"} height={isSmallerThan ? "150px" : "130px"} marginTop={"10px"}>
+            <SimpleGrid columns={1} spacingX={"auto"} spacingY={"auto"}>
+              <img src={logo} width={150} style={{
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  display: "table",
+                  translate: isSmallerThan ? "0px -6px" : "0 -20%" 
+              }} alt={"logo"} ></img>
+            </SimpleGrid>
           </Box>
 
           <Box as={Flex} flexDirection="column" marginBottom={"15px"}>
-          <SimpleGrid columns={1} spacingX={"10px"} spacingY={"10px"}>
-            <Heading color={"grey"}>Contact</Heading>
-            <Text to="/allproducts?gender=MEN">Sđt: 0359284818 - 0369253220</Text>
-            <Text to="/allproducts?gender=WOMEN">Email: eagleteal.repair@gmail.com</Text>
-            {/* <Text to="/allproducts?category=shoes" >Shoes Collection</Text>
+            <SimpleGrid columns={1} spacingX={"10px"} spacingY={"10px"}>
+              <Heading color={"grey"}>Contact</Heading>
+              <Text to="/allproducts?gender=MEN">Sđt: 0359284818 - 0369253220</Text>
+              <Text to="/allproducts?gender=WOMEN">Email: eagleteal.repair@gmail.com</Text>
+              {/* <Text to="/allproducts?category=shoes" >Shoes Collection</Text>
             <Text to="/allproducts?category=clothes">Clothes Collection</Text> */}
-          </SimpleGrid>  
+            </SimpleGrid>
           </Box>
 
 
