@@ -15,10 +15,12 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
+//import swal from "sweetalert";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { login } from "../redux/AuthReducer/action";
+//import { LOGIN_S } from "../redux/AuthReducer/actionType";
 import { ViewIcon } from "@chakra-ui/icons";
 const Login = () => {
   const dispatch = useDispatch();
@@ -48,9 +50,10 @@ const Login = () => {
         username,
         password,
       };
-      dispatch(login(params, toast)).then((res) => {
+      dispatch(login(params, toast))
+      .then((res) => {
         navigate(pathRoute, { replace: true });
-      });
+      })
     }
   };
 
@@ -127,3 +130,8 @@ const Login = () => {
 };
 
 export default Login;
+
+// swal({
+//   text: "Login Success",
+//   icon: "success",
+// });

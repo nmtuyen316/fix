@@ -1,7 +1,7 @@
 import { Box, Flex, useMediaQuery, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+// import { useNavigate } from "react-router-dom";
 import { CheckoutForm } from "../components/checkout/CheckoutForm";
 import CheckOutPage from "../components/checkout/CheckOutPage";
 import { InputCoupon } from "../components/InputCoupon/InputCoupon";
@@ -13,7 +13,7 @@ import {
   checkPinCode,
   setToast,
 } from "../components/Other/CheckProperty";
-import { displayRazorpay } from "../components/rozarpay/RozarPay";
+// import { displayRazorpay } from "../components/rozarpay/RozarPay";
 
 const initialState = {
   firstName: "",
@@ -30,14 +30,14 @@ const initialState = {
 
 const Checkout = () => {
   const cart = useSelector((store) => store.cart.cart);
-  const profileData = useSelector((state) => state.AuthReducer?.profileData);
+  // const profileData = useSelector((state) => state.AuthReducer?.profileData);
   const [dis, setDis] = useState("");
   const toast = useToast();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [form, setForm] = useState(initialState);
-  const profileImg = profileData.description;
+  // const profileImg = profileData.description;
   const [isLargerThan] = useMediaQuery("(min-width: 768px)");
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleOnChange = ({ target: { name, value } }) => {
     setForm({ ...form, [name]: value });
@@ -77,10 +77,10 @@ const Checkout = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!handleFormValidation(form)) {
-      return;
-    } else {
-      displayRazorpay(total_discount, form, navigate,profileImg,dispatch);
-    }
+      return;}
+    // } else {
+    //   displayRazorpay(total_discount, form, navigate,profileImg,dispatch);
+    // }
   };
   // =====================Login Down========================================================================
   const convertStringIntoNumber = (str) => {

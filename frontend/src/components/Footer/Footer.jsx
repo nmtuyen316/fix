@@ -9,7 +9,7 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import React from "react";
-import { BsYoutube, BsInstagram, BsFacebook } from "react-icons/bs";
+import { BsYoutube, BsFacebook } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import logo from '../../img/favicon.ico';
 // import { GiCondorEmblem } from "react-icons/gi";
@@ -36,8 +36,8 @@ const Footer = () => {
           fontSize={["sm", "md", "md", "md"]}
           flexDirection={isSmallerThan ? "row" : "column"}
         >
-          <Box onClick={handleHome} border={isSmallerThan ? "4px solid grey" : "0"} borderRadius={"20px"} height={isSmallerThan ? "150px" : "130px"} marginTop={"10px"}>
-            <SimpleGrid columns={1} spacingX={"auto"} spacingY={"auto"}>
+          <Box onClick={handleHome} border={isSmallerThan?"4px solid grey":"0"} borderRadius={"20px"} height={isSmallerThan ?"150px":"130px"} marginTop={"10px"}>
+          <SimpleGrid columns={1} spacingX={"auto"} spacingY={"auto"}>
               <img src={logo} width={150} style={{
                   marginLeft: "auto",
                   marginRight: "auto",
@@ -48,13 +48,11 @@ const Footer = () => {
           </Box>
 
           <Box as={Flex} flexDirection="column" marginBottom={"15px"}>
-            <SimpleGrid columns={1} spacingX={"10px"} spacingY={"10px"}>
-              <Heading color={"grey"}>Contact</Heading>
-              <Text to="/allproducts?gender=MEN">Sđt: 0359284818 - 0369253220</Text>
-              <Text to="/allproducts?gender=WOMEN">Email: eagleteal.repair@gmail.com</Text>
-              {/* <Text to="/allproducts?category=shoes" >Shoes Collection</Text>
-            <Text to="/allproducts?category=clothes">Clothes Collection</Text> */}
-            </SimpleGrid>
+          <SimpleGrid columns={1} spacingX={"10px"} spacingY={"10px"}>
+            <Heading color={"grey"}>Contact</Heading>
+            <Text to="/allproducts?gender=MEN">Sđt: 0359284818 - 0369253220</Text>
+            <Text to="/allproducts?gender=WOMEN">Email: eagleteal.repair@gmail.com</Text>
+          </SimpleGrid>  
           </Box>
 
 
@@ -62,8 +60,8 @@ const Footer = () => {
             <Heading>Nextwork</Heading>
             <Box mt="1rem" display={"flex"} gap="1rem" justifyContent={"space-around"}
             >
-              <SimpleGrid columns={isSmallerThan ? 2 : 3} spacingX={"30px"} spacingY={"20px"}>
-                <Box width={"100%"}>
+              <SimpleGrid columns={isSmallerThan ? 2 : 2} spacingX={"30px"} spacingY={"20px"}>
+                {/* <Box width={"100%"}>
                   <Link
                     href="https://www.linkedin.com/in/naresh-rajput/"
                     target={"_blank"}
@@ -71,10 +69,10 @@ const Footer = () => {
                   >
                     <Icon w={9} h={9} as={BsInstagram} />
                   </Link>
-                </Box>
+                </Box> */}
                 <Box width={"95%"}>
                   <Link
-                    href="https://github.com/nmewada01"
+                    href="https://www.facebook.com/profile.php?id=100083653755690"
                     target={"_blank"}
                     rel="noreferrer"
                   >
@@ -83,7 +81,7 @@ const Footer = () => {
                 </Box>
                 <Box width={"95%"}>
                   <Link
-                    href="https://nmewada01.github.io/portfolio/"
+                    href="https://www.youtube.com/channel/UCK7NRGzAqAjMySDin87tdCQ"
                     target={"_blank"}
                     rel="noreferrer"
                   >
@@ -93,28 +91,6 @@ const Footer = () => {
               </SimpleGrid>
             </Box>
           </Box>
-
-          {/* {isSmallerThan ? (
-            <Box>
-              <Heading>Support</Heading>
-              <Text>Help</Text>
-              <Text>Customer Service</Text>
-              <Text>Shipping</Text>
-              <Text>Order Tracker</Text>
-              <Text>Returns & Exchanges</Text>
-            </Box>
-          ) : null} */}
-
-          {/* {isLargerThan ? (
-            <Box>
-              <Heading>Company Info</Heading>
-              <Text>About Us</Text>
-              <Text>Entity Details</Text>
-              <Text>Careers</Text>
-              <Text>Company Apps</Text>
-            </Box>
-          ) : null} */}
-
           <Box mt="1rem" display={"flex"} gap="3rem" justifyContent={"space-around"} position={"absolute"}
             style={{ translate: "473px 90px" }}
           >

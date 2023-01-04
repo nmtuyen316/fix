@@ -102,7 +102,7 @@ router.post('/login', async (req, res) => {
 		const accessToken = jwt.sign(
 			{ userID: user._id },
 			process.env.ACCESS_TOKEN_SECRET,{
-				expiresIn:"30s"
+				expiresIn:"1h"
 			}
 		)
 		const refreshtoken = jwt.sign({userID: user._id},
@@ -131,7 +131,6 @@ router.post('/login', async (req, res) => {
 router.post('/refresh',async (req,res)=>{
 	const refreshtoken = req.cookies.refresh_token;
 	const decoded = refreshtoken && jwt.verify(refreshtoken,process.env.REFRESH_TOKEN_SECRET);
-
 	const user = await User.findOne({_id: decoded?.userID, refreshtoken: refreshtoken});
 
 	if(!refreshtoken) 
@@ -145,7 +144,7 @@ router.post('/refresh',async (req,res)=>{
 		const newAccessToken = jwt.sign(
 			{ userID: decode.userID },
 			process.env.ACCESS_TOKEN_SECRET,{
-				expiresIn:"30s"
+				expiresIn:"1h"
 			}
 		)
 		const newRefreshToken = jwt.sign(

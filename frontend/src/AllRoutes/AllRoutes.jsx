@@ -1,12 +1,8 @@
 import React from "react";
 import Home from "../Pages/Home";
 import { Routes, Route } from "react-router-dom";
-import AllProducts from "../Pages/AllProducts";
-import Men from "../Pages/Men";
-import Women from "../Pages/Women";
 
 import DescriptionPage from "../components/Description/DescriptionPage";
-import AllshoesD from "../Pages/Shoes";
 import Cart from "../Pages/Cart";
 import Login from "../Pages/Login";
 import Register from "../Pages/SignUp";
@@ -19,10 +15,6 @@ const AllRoutes = () => {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/allproducts" element={<AllProducts />} />
-        <Route path="/men" element={<Men />} />
-        <Route path="/women" element={<Women />} />
-        <Route path="/shoes" element={<AllshoesD />} />
         <Route path="/description/:id" element={<DescriptionPage />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />

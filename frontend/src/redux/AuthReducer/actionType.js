@@ -14,4 +14,4 @@ export const LOGOUT_R = "LOGOUT_R";
 export const LOGOUT_S = "LOGOUT_S";
 export const LOGOUT_F = "LOGOUT_F";
 
-export const REFRESH_TOKEN_SECRET = "REFRESH_TOKEN_SECRET"
+export const REFRESH_TOKEN_SECRET = "REFRESH_TOKEN_SECRET";

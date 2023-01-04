@@ -72,11 +72,6 @@ export default function SideMenu({ colorMode }) {
                   Home
                 </Text>
               </Link>
-              <Link to="/allproducts">
-                <Text my="4" mx="2">
-                  AllProducts
-                </Text>
-              </Link>
               <Box>
               </Box>
               {/* <Link to="/men">

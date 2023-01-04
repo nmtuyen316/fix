@@ -24,5 +24,3 @@ const clearItem = (payload) => ({
   payload,
 });
 export { addToCart, incQty, decQty, removeItem, clearItem };
-
-// expression assignment erro so check the bracket have use right brackets

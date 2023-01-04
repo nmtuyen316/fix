@@ -114,7 +114,7 @@ const Cart = () => {
                           border={"1px solid black"}
                           disabled={item.qty === 0}
                           onClick={() =>
-                            handleDecrement(item.id, item.size, item.qty)
+                            handleDecrement(item._id, item.size, item.qty)
                           }
                         >
                           <MinusIcon fontSize={"10"} />
@@ -126,7 +126,7 @@ const Cart = () => {
                           bg="black"
                           borderRadius={"50%"}
                           border={"1px solid black"}
-                          onClick={() => handleIncrement(item.id, item.size)}
+                          onClick={() => handleIncrement(item._id, item.size)}
                         >
                           <AddIcon fontSize={"10"} />
                         </Button>

@@ -47,7 +47,6 @@ const profile = (payload) => (dispatch) => {
     })
     .catch((e) => dispatch({ type: types.PROFILE_F, payload: e }));
 };
-
 const logout = (payload) => (dispatch) => {
   return JWTaxios.post("/auth/logout", {}, { headers: { token: `Bearer ${payload.token}` } })
     .then((r) => { 
@@ -56,12 +55,10 @@ const logout = (payload) => (dispatch) => {
 }
 
 const refresh = (accessToken) => (dispatch) => {
-    dispatch({
-      type: types.REFRESH_TOKEN_SECRET,
-      payload: accessToken
-    })
+  dispatch({
+    type: types.REFRESH_TOKEN_SECRET,
+    payload: accessToken
+  })
 }
 
-export { login, register, profile, logout, refresh };
-
-
+export {login,register, profile,logout,refresh };

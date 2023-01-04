@@ -112,8 +112,9 @@ export default function Carousel() {
                 >
                   <a href="tel:+84369253220">Liên hệ ngay</a>
                 </Button>
-      </Box>))}
+        </Box>
+        ))}
       </Slider>
-      </Box>
+    </Box>
   );
 }
