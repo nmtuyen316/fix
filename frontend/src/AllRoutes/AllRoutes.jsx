@@ -10,6 +10,7 @@ import Checkout from "../Pages/Checkout";
 import Authentication from "../PrivateRoute/Authentication";
 import MyAccount from "../Pages/MyAccount";
 import AdminPage from "../Admin/AdminPage";
+import Gift from "../Pages/Gift";
 const AllRoutes = () => {
   return (
     <div>
@@ -21,6 +22,14 @@ const AllRoutes = () => {
         <Route path="/myaccount" element={<MyAccount />} />
 
         <Route path="/register" element={<Register />} />
+        <Route
+          path="/gift"
+          element={
+            <Authentication>
+              <Gift />
+            </Authentication>
+          }
+        />
         <Route
           path="/checkout"
           element={
