@@ -11,3 +11,4 @@ async function connect(){
 }
 mongoose.set('strictQuery', false);
 module.exports = connect;
+
