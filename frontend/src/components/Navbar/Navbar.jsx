@@ -91,18 +91,18 @@ const Navbar = () => {
                 Home
               </Text>
             </NavLink>
-            {/* <NavLink
+            <NavLink
               style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
-              to="/allproducts"
+              to="/gift"
             >
               <Text
                 color={colorMode === "dark" ? "white" : "black"}
                 my="4"
                 mx="2"
               >
-                AllProducts
+                Gift
               </Text>
-            </NavLink> */}
+            </NavLink>
           </HStack>
         ) : null}
 
