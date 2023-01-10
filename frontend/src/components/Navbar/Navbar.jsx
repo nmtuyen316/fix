@@ -88,7 +88,7 @@ const Navbar = () => {
                 my="4"
                 mx="2"
               >
-                Home
+                Trang chủ
               </Text>
             </NavLink>
             <NavLink
@@ -100,7 +100,7 @@ const Navbar = () => {
                 my="4"
                 mx="2"
               >
-                Gift
+                Quà tặng
               </Text>
             </NavLink>
           </HStack>
@@ -132,7 +132,7 @@ const Navbar = () => {
             }}
             onClick={handleLogin}
           >
-            Login
+            Đăng nhập
           </Button>
           :
             <Button
@@ -145,7 +145,7 @@ const Navbar = () => {
               }}
               onClick={handleSignup}
             >
-              Sign up
+              Đăng ký
             </Button>
           )}
           {isLargerThan && 

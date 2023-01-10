@@ -21,11 +21,10 @@ const Empty = () => {
       >
         <Box>
           <Heading mx={"4"} my={"6"} textTransform={"uppercase"}>
-            Your Bag is Empty
+            Giỏ quà của bạn trống
           </Heading>
           <Text mx={"4"} my={"6"}>
-            Once you add something to your bag - it will appear here. Ready to
-            get started?
+            Tích điểm để những món quà hấp dẫn đổi quà ngay
           </Text>
 
           <Button
@@ -37,7 +36,7 @@ const Empty = () => {
             color={"whitesmoke"}
             colorScheme={"orange"}
           >
-            GET STARTED
+            Bắt đầu tích điểm
           </Button>
         </Box>
       </Container>

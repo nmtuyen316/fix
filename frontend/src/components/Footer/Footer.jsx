@@ -11,9 +11,10 @@ import {
 import React from "react";
 import { BsYoutube, BsFacebook } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { BsFillGiftFill } from "react-icons/bs";
 import logo from '../../img/favicon.ico';
 // import { GiCondorEmblem } from "react-icons/gi";
-// import { Link } from "react-router-dom";
+import { Link as LinkIN } from "react-router-dom";
 const Footer = () => {
   const navigate = useNavigate();
   const [isSmallerThan] = useMediaQuery("(min-width: 468px)");
@@ -61,15 +62,6 @@ const Footer = () => {
             <Box mt="1rem" display={"flex"} gap="1rem" justifyContent={"space-around"}
             >
               <SimpleGrid columns={isSmallerThan ? 2 : 2} spacingX={"30px"} spacingY={"20px"}>
-                {/* <Box width={"100%"}>
-                  <Link
-                    href="https://www.linkedin.com/in/naresh-rajput/"
-                    target={"_blank"}
-                    rel="noreferrer"
-                  >
-                    <Icon w={9} h={9} as={BsInstagram} />
-                  </Link>
-                </Box> */}
                 <Box width={"95%"}>
                   <Link
                     href="https://www.facebook.com/profile.php?id=100083653755690"
@@ -86,6 +78,15 @@ const Footer = () => {
                     rel="noreferrer"
                   >
                     <Icon w={9} h={9} my="0rem" as={BsYoutube} />
+                  </Link>
+                </Box>
+                <Box width={"100%"}>
+                  <Link
+                    as={LinkIN}
+                    to='/admin/gift'
+                    rel="noreferrer"
+                  >
+                    <Icon w={9} h={9} as={BsFillGiftFill} />
                   </Link>
                 </Box>
               </SimpleGrid>

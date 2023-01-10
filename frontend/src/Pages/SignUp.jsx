@@ -117,7 +117,7 @@ const Signup = () => {
             fontSize={"4xl"}
             textAlign={"center"}
           >
-            Sign up
+            Đăng ký
           </Heading>
         </Stack>
         <Box
@@ -130,7 +130,7 @@ const Signup = () => {
             <HStack>
               <Box>
                 <FormControl id="Name" isRequired>
-                  <FormLabel>Full name</FormLabel>
+                  <FormLabel>Họ tên</FormLabel>
                   <Input
                     type="text"
                     value={state.name}
@@ -142,7 +142,7 @@ const Signup = () => {
               </Box>
               <Box>
                 <FormControl id="username" isRequired>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel>Tên đăng nhập</FormLabel>
                   <Input
                     type="text"
                     value={state.username}
@@ -154,7 +154,7 @@ const Signup = () => {
               </Box>
             </HStack>
             <FormControl id="email" isRequired>
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>Email</FormLabel>
               <Input
                 type="email"
                 value={state.email}
@@ -164,7 +164,7 @@ const Signup = () => {
               />
             </FormControl>
             <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Mật khẩu</FormLabel>
               <InputGroup>
                 <Input
                   type={eye ? "text" : "password"}
@@ -182,7 +182,7 @@ const Signup = () => {
             </FormControl>
             <Box>
               <FormControl id="mobile" isRequired>
-                <FormLabel>Mobile</FormLabel>
+                <FormLabel>Số điện thoại</FormLabel>
                 <Input
                   type="number"
                   value={state.mobile}
@@ -192,22 +192,6 @@ const Signup = () => {
                 />
               </FormControl>
             </Box>
-            {/* <Box>
-              <FormLabel>Image</FormLabel>
-              <Editable
-                color={"darkgrey"}
-                placeholder="Paste Link..."
-                align={"left"}
-              >
-                <EditablePreview />
-                <EditableTextarea
-                  value={state.description}
-                  onChange={(e) =>
-                    setState({ type: "description", payload: e.target.value })
-                  }
-                />
-              </Editable>
-            </Box> */}
             <Stack spacing={10} pt={2}>
               <Button
                 loadingText="Submitting"
@@ -221,14 +205,14 @@ const Signup = () => {
                 }}
                 onClick={signupHandle}
               >
-                {loading ? <Spinner /> : "Sign up"}
+                {loading ? <Spinner /> : "Đăng ký"}
               </Button>
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                Already a user?
+                Bạn đã có tài khoản?
                 <RouterLink to="/login" color={"blue.400"}>
-                  Login
+                  Đăng nhập
                 </RouterLink>
               </Text>
             </Stack>

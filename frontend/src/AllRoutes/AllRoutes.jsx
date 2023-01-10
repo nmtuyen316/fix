@@ -9,7 +9,8 @@ import Register from "../Pages/SignUp";
 import Checkout from "../Pages/Checkout";
 import Authentication from "../PrivateRoute/Authentication";
 import MyAccount from "../Pages/MyAccount";
-import AdminPage from "../Admin/AdminPage";
+import GiftAdmin from "../Admin/GiftAdmin";
+import AdminCheck from "../PrivateRoute/AdminCheck";
 import Gift from "../Pages/Gift";
 const AllRoutes = () => {
   return (
@@ -31,6 +32,16 @@ const AllRoutes = () => {
           }
         />
         <Route
+          path="/admin/gift"
+          element={
+            <Authentication>
+              <AdminCheck>
+                <GiftAdmin />
+              </AdminCheck>
+            </Authentication>
+          }
+        />
+        <Route
           path="/checkout"
           element={
             <Authentication>
@@ -38,14 +49,14 @@ const AllRoutes = () => {
             </Authentication>
           }
         />
-        <Route
+        {/* <Route
           path="/admin"
           element={
             <Authentication>
               <AdminPage />
             </Authentication>
           }
-        />
+        /> */}
       </Routes>
     </div>
   );

@@ -7,7 +7,7 @@ import Loading from "../components/Loading/Loading";
 import AllProducts from "../components/AllProducts/AllProducts";
 
 const Home = () => {
-  const loading = useSelector((store) => store.pagesReducer.isLoading);
+  const loading = useSelector((store) => store.dataReducer.isLoading);
   return (
     <div>
       {loading ? (

@@ -18,34 +18,34 @@ export const CheckoutForm = ({
       <Box width={["95%", "90%", "50%", "50%"]}  m="auto" min-h="100vh">
         <form p="3rem" onSubmit={FormSubmit}>
           <Heading align={"left"} my={"5"}>
-            Address<span style={{ color: "red" }}>*</span>
+            Địa chỉ giao quà<span style={{ color: "red" }}>*</span>
           </Heading>
           <HStack spacing={"10"} my={"5"}>
             <Input
               onChange={onChange}
               type="text"
               name="firstName"
-              placeholder="First Name*"
+              placeholder="Họ và Tên"
             />
-            <Input
+            {/* <Input
               onChange={onChange}
               type="text"
               name="lastName"
-              placeholder="Last Name*"
-            />
+              placeholder="Tên lót và Tên"
+            /> */}
           </HStack>
           <VStack spacing={"10"} my={"10"}>
             <Input
               onChange={onChange}
               type="text"
               name="addressLine1"
-              placeholder="Address Line 1*"
+              placeholder="Địa chỉ 1"
             />
             <Input
               onChange={onChange}
               type="text"
               name="addressLine2"
-              placeholder="Address Line 2"
+              placeholder="Địa chỉ 2"
             />
           </VStack>
           <HStack spacing={"10"} my={"8"}>
@@ -53,13 +53,13 @@ export const CheckoutForm = ({
               onChange={onChange}
               type="text"
               name="locality"
-              placeholder="Town/City*"
+              placeholder="Tỉnh/Thành phố"
             />
             <Input
               onChange={onChange}
               type="number"
               name="pinCode"
-              placeholder="Pin Code*"
+              placeholder="Mã bưu điện"
             />
           </HStack>
           <HStack spacing={"10"} my={"5"}>
@@ -67,31 +67,31 @@ export const CheckoutForm = ({
               onChange={onChange}
               type="text"
               name="state"
-              placeholder="State/Territory*"
+              placeholder="Ghi chú"
             />
-            <Input
+            {/* <Input
               onChange={onChange}
               type="text"
               name="country"
               placeholder="Country*"
-            />
+            /> */}
           </HStack>
           <Divider />
           <Heading align={"left"} my={"5"}>
-            Contact<span style={{ color: "red" }}>*</span>
+            Thông tin liên lạc<span style={{ color: "red" }}>*</span>
           </Heading>
           <VStack spacing={"8"}>
             <Input
               onChange={onChange}
               type="email"
               name="email"
-              placeholder="Email*"
+              placeholder="Email"
             />
             <Input
               onChange={onChange}
               type="number"
               name="mobile"
-              placeholder="Mobile*"
+              placeholder="Số điện thoại"
             />
           </VStack>
           <Button
@@ -109,7 +109,7 @@ export const CheckoutForm = ({
             }}
             type="submit"
           >
-            PLACE ORDER
+            ĐẶT NHẬN QUÀ
           </Button>
         </form>
       </Box>

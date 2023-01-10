@@ -13,18 +13,6 @@ const ProductSchema = new Schema({
 	colortype: {
 		type: String,
 		required: true
-	},
-	gender: {
-		type: String,
-		required: true,
-	},
-	category:{
-		type: String,
-		default:null
-	},
-	original_price:{
-		type: String,
-		required: true
 	},	
     final_price:{
 		type: String,
@@ -38,14 +26,6 @@ const ProductSchema = new Schema({
         type: [String],
         default: []
     },
-    reviews: {
-        type: Number,
-		default:0
-    },
-    rating: {
-        type: Number,
-		default:0
-    }
 },
 {
 	timestamps: true

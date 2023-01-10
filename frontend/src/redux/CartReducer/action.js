@@ -19,8 +19,7 @@ const removeItem = (payload) => ({
   payload,
 });
 
-const clearItem = (payload) => ({
+const clearItem = () => ({
   type: types.CLEAR_QTY,
-  payload,
 });
 export { addToCart, incQty, decQty, removeItem, clearItem };

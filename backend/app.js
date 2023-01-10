@@ -13,7 +13,9 @@ var session = require('express-session');
 
 var authRouter = require('./routes/auth');
 var productsRouter = require('./routes/products');
-// var usersRouter = require('../backend/routes/users');
+var giftsRouter = require('./routes/gifts');
+var usersRouter = require('./routes/users');
+var ordersRouter = require('./routes/orders');
 
 var app = express();
 
@@ -39,6 +41,8 @@ app.options('*', cors(corsOptions))
 
 app.use('/api/auth', authRouter);
 app.use('/api/products', productsRouter);
-// app.use('/users', usersRouter);
+app.use('/api/gift',giftsRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/orders',ordersRouter);
 
 app.listen(PORT);

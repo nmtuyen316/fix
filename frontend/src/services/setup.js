@@ -8,7 +8,6 @@ const setup = async (store) => {
     const { dispatch } = store
     JWTaxios.interceptors.request.use(
         async (config) => {
-            console.log('tuyen')
             let date = new Date();
             const token = getLocalData("token");
             if (token) {

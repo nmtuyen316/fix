@@ -19,7 +19,6 @@ const Cart = () => {
   const [isLargerThan] = useMediaQuery("(min-width: 768px)");
   const cart = useSelector((store) => store.cart.cart);
   const dispatch = useDispatch();
-
   const handleIncrement = (id, size) => {
     dispatch(incQty({ id, size }));
   };
@@ -60,11 +59,10 @@ const Cart = () => {
         <div>
           <Box align="left" width={["95%", "90%", "80%", "85%"]} m="auto">
         
-            <Heading my={"2"}>YOUR BAG</Heading>
+            <Heading my={"2"}>Giỏ Quà</Heading>
             <Text my={"2"}>TOTAL [{cart.length} items]</Text>
             <Text my={"2"}>
-              Items in your bag are not reserved — check out now to make them
-              yours.
+            Các vật phẩm trong giỏ quà của bạn không được đặt trước — hãy đổi ngay bây giờ để biến chúng thành của bạn.
             </Text>
           </Box>
           {/* -------------------------------UP HeadLines-------------------------------------------------------- */}
@@ -97,10 +95,7 @@ const Cart = () => {
                       <Flex justifyContent={"space-between"}>
                         <Text>{item.name} </Text>
                         <Box>
-                          <Text as="s" color="red" fontWeight={"bold"}>
-                            ₹{item.original_price}
-                          </Text>
-                          <Text>₹{item.final_price}</Text>
+                          <Text>{item.final_price} ET</Text>
                         </Box>
                       </Flex>
                       <Text my={"2"}>{item.color} </Text>
@@ -138,7 +133,7 @@ const Cart = () => {
             {/* ------------------------------up fetching cart and down checkout---------------------------------------- */}
             <Box width={["95%", "90%", "40%", "35%"]}>
               <CheckOutPage
-                title={"CHECKOUT"}
+                title={"THANH TOÁN"}
                 cart={cart}
                 show_price={show_price}
                 discount_price={discount_price}

@@ -36,8 +36,9 @@ const DescriptionPage = () => {
   }, [id, products]);
 
   const handleCart = () => {
+    const {sizes,colortype,...infoCurrentProducts}=currentProducts
     let payload = {
-      ...currentProducts,
+      ...infoCurrentProducts,
       size,
     };
 
@@ -69,7 +70,7 @@ const DescriptionPage = () => {
             <Heading>{currentProducts.name}</Heading>
             <Box mx={"4"} my={"6"} fontSize={["sm", "md", "lg", "xl"]}>
               <Text fontSize={"lg"}>
-                MRP :
+                Điểm :
                 <span
                   style={{
                     color: "red",
@@ -80,9 +81,6 @@ const DescriptionPage = () => {
                   {currentProducts.final_price} ET
                 </span>
               </Text>
-              <Badge color={"grey"} fontWeight={"bold"}>
-                incl. of taxes and duties
-              </Badge>
             </Box>
             <Box>
               <Text
@@ -91,7 +89,7 @@ const DescriptionPage = () => {
                 mx={"4"}
                 fontWeight={"bold"}
               >
-                Select Size
+                Size
               </Text>
               <Flex gap={"2rem"} my={"5"} mx={"4"}>
                 {currentProducts.sizes?.map((size) => (
@@ -118,7 +116,7 @@ const DescriptionPage = () => {
                 disabled={!size}
                 onClick={handleCart}
                 >
-                {!size ? "Please Select A Size" : "ADD TO BAG"}
+                {!size ? "Hãy chọn size" : "THÊM VÀO GIỎ QUÀ"}
               </Button>
             </Box>
           </Box>
@@ -128,12 +126,12 @@ const DescriptionPage = () => {
           {/* ------------------------------description Box------------------------------------ */}
           <Box mt={"5rem"} align={"left"} mx={"4"}>
             <Badge ml="1" fontSize="1rem" colorScheme="blackAlpha">
-              Description :
+              Mô tả :
             </Badge>
 
             <UnorderedList spacing={"3"} my={"4"}>
               <ListItem fontSize={"md"} fontWeight={"semibold"}>
-                Colour : {currentProducts.color}{" "}
+                Màu sắc : {currentProducts.color}{" "}
               </ListItem>
             </UnorderedList>
           </Box>

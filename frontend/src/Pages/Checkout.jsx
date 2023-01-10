@@ -1,10 +1,10 @@
 import { Box, Flex, useMediaQuery, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { CheckoutForm } from "../components/checkout/CheckoutForm";
 import CheckOutPage from "../components/checkout/CheckOutPage";
-import { InputCoupon } from "../components/InputCoupon/InputCoupon";
+// import { InputCoupon } from "../components/InputCoupon/InputCoupon";
 import {
   checkCharacter,
   checkEmail,
@@ -13,6 +13,8 @@ import {
   checkPinCode,
   setToast,
 } from "../components/Other/CheckProperty";
+import { clearItem } from "../redux/CartReducer/action";
+import { createOrder } from "../redux/OrderReducer/action";
 // import { displayRazorpay } from "../components/rozarpay/RozarPay";
 
 const initialState = {
@@ -30,14 +32,14 @@ const initialState = {
 
 const Checkout = () => {
   const cart = useSelector((store) => store.cart.cart);
-  // const profileData = useSelector((state) => state.AuthReducer?.profileData);
-  const [dis, setDis] = useState("");
+  const profileData = useSelector((state) => state.AuthReducer?.profileData);
+  // const [dis, setDis] = useState("");
   const toast = useToast();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [form, setForm] = useState(initialState);
   // const profileImg = profileData.description;
   const [isLargerThan] = useMediaQuery("(min-width: 768px)");
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleOnChange = ({ target: { name, value } }) => {
     setForm({ ...form, [name]: value });
@@ -53,10 +55,10 @@ const Checkout = () => {
     if (!isFirstname.status) {
       return setToast(toast, isFirstname.message, "error");
     }
-    const isLastname = checkCharacter(form.lastName);
-    if (!isLastname.status) {
-      return setToast(toast, isLastname.message, "error");
-    }
+    // const isLastname = checkCharacter(form.lastName);
+    // if (!isLastname.status) {
+    //   return setToast(toast, isLastname.message, "error");
+    // }
     const isEmail = checkEmail(form.email);
     if (!isEmail.status) {
       setToast(toast, isEmail.message, "error");
@@ -78,9 +80,24 @@ const Checkout = () => {
     e.preventDefault();
     if (!handleFormValidation(form)) {
       return;}
-    // } else {
-    //   displayRazorpay(total_discount, form, navigate,profileImg,dispatch);
-    // }
+      else {
+      const items = cart.map(({images,name,final_price,...keepItems})=>keepItems)
+      const payload={
+        customerID:profileData.id,
+        name:form.firstName,
+        address:form.addressLine1 +'*'+ form.addressLine2+'*'+form.country,
+        mobile:form.mobile,
+        email:form.email,
+        status:['wait'],
+        items:items,
+        total:discount_price,
+      }
+      dispatch(createOrder(payload,toast))
+      .then((r)=>{
+        dispatch(clearItem())
+        navigate('/');
+      })
+    }
   };
   // =====================Login Down========================================================================
   const convertStringIntoNumber = (str) => {
@@ -92,17 +109,16 @@ const Checkout = () => {
     let result = Number(converting_string);
     return result;
   };
-  let show_price = 0;
+  // let show_price = 0;
   let discount_price = 0;
   let quantity = 0;
   cart.forEach((item) => {
-    show_price += convertStringIntoNumber(item.original_price) * item.qty;
+    // show_price += convertStringIntoNumber(item.original_price) * item.qty;
     discount_price += convertStringIntoNumber(item.final_price) * item.qty;
     quantity += item.qty;
   });
-  let discount = dis;
-  let total_discount = Math.floor(discount_price - dis);
-
+  // let total_discount = discount_price);
+  // let discount = dis;
   // ===========================Login UP===============================================================
   return (
     <div>
@@ -116,19 +132,19 @@ const Checkout = () => {
           isLargerThan={isLargerThan}
           onChange={handleOnChange}
           FormSubmit={handleSubmit}
-          total_discount={total_discount}
+          // total_discount={discount_price}
         />
         {/* ---------------------------------place order --------------------------------------------------- */}
-        <Box width={["95%", "90%", "40%", "40%"]} m="auto" min-h="100vh">
+        <Box width={["95%", "90%", "40%", "40%"]} m="0 auto" min-h="100vh">
           <CheckOutPage
-            title={"BACK TO CART"}
+            title={"QUAY VỀ GIỎ QUÀ"}
             cart={cart}
-            show_price={show_price}
+            // show_price={show_price}
             discount_price={discount_price}
             link={"/cart"}
-            coupon={InputCoupon(discount_price, setDis)}
-            total_discount={total_discount}
-            discount={discount}
+            // coupon={InputCoupon(discount_price, setDis)}
+            // total_discount={discount_price}
+            // discount={discount}
             quantity={quantity}
           />
         </Box>

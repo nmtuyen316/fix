@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import {
     Flex,
     Box,
@@ -6,34 +5,21 @@ import {
     Text,
     useMediaQuery,
 } from "@chakra-ui/react"
-import { useLocation, useSearchParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import ProductDis from "../ProductsDisplay/ProductDis";
 import { getData } from "../../redux/DataReducer/action";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 const AllProducts = () => {
     const dispatch = useDispatch();
     const products = useSelector((store) => store?.dataReducer?.products);
-    const location = useLocation();
     const [isLargerThan] = useMediaQuery("(min-width: 768px)");
-    const [searchParams] = useSearchParams();
-    useEffect(() => {
-        if (location.search || products?.length === 0) {
-            const sortBy = searchParams.get("sortBy");
-
-            const queryParams = {
-                params: {
-                    category: searchParams.getAll("category"),
-                    gender: searchParams.getAll("gender"),
-                    colortype: searchParams.getAll("colortype"),
-                    sizes: searchParams.getAll("sizes"),
-                    _sort: sortBy && "rating",
-                    _order: sortBy,
-                },
-            };
-            dispatch(getData(queryParams));
+    useEffect(()=>{
+        if(products?.length===0){
+            dispatch(getData());
         }
-    }, [dispatch, location.search, products?.length, searchParams]);
+    },[dispatch,products?.length])
     return (<>
         <Box fontSize={'50px'}>
             <Text>ET Shop</Text>

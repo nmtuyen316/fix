@@ -12,27 +12,27 @@ const getData = (params) => (dispatch) => {
     });
 };
 
-const updateData = (id, payload) => (dispatch) => {
-  dispatch({ type: types.UPDATE_DATA_R });
-  return axios
-    .patch(`https://nareshrajput-sportsk.up.railway.app/allproducts/${id}`, payload)
-    .then((res) => {
-      dispatch({ type: types.UPDATE_DATA_S });
-    })
-    .catch((err) => {
-      dispatch({ type: types.UPDATE_DATA_F });
-    });
-};
-const deleteData = (id) => (dispatch) => {
-  dispatch({ type: types.DELETE_DATA_R });
-  return axios
-    .delete(`https://nareshrajput-sportsk.up.railway.app/allproducts/${id}`)
-    .then((res) => {
-      dispatch({ type: types.DELETE_DATA_S });
-    })
-    .catch((err) => {
-      dispatch({ type: types.DELETE_DATA_F });
-    });
-};
-export { getData, updateData, deleteData };
+// const updateData = (id, payload) => (dispatch) => {
+//   dispatch({ type: types.UPDATE_DATA_R });
+//   return axios
+//     .patch(`https://nareshrajput-sportsk.up.railway.app/allproducts/${id}`, payload)
+//     .then((res) => {
+//       dispatch({ type: types.UPDATE_DATA_S });
+//     })
+//     .catch((err) => {
+//       dispatch({ type: types.UPDATE_DATA_F });
+//     });
+// };
+// const deleteData = (id) => (dispatch) => {
+//   dispatch({ type: types.DELETE_DATA_R });
+//   return axios
+//     .delete(`https://nareshrajput-sportsk.up.railway.app/allproducts/${id}`)
+//     .then((res) => {
+//       dispatch({ type: types.DELETE_DATA_S });
+//     })
+//     .catch((err) => {
+//       dispatch({ type: types.DELETE_DATA_F });
+//     });
+// };
+export { getData };
 //https://desktime-tanner-redux.herokuapp.com/allproducts

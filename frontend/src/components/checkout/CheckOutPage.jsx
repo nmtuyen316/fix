@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Badge,
+  // Badge,
   Box,
   Button,
   Flex,
@@ -11,13 +11,13 @@ import {
 import { useNavigate } from "react-router-dom";
 const CheckOutPage = ({
   cart,
-  show_price,
+  // show_price,
   discount_price,
   link,
   title,
-  coupon,
-  total_discount,
-  discount,
+  // coupon,
+  // total_discount,
+  // discount,
   quantity,
 }) => {
   const navigate = useNavigate();
@@ -40,31 +40,32 @@ const CheckOutPage = ({
 
       <Stack spacing={5} my={"7"} border="3px solid beige">
         <Heading size={"md"} align={"left"} mx={"2"}>
-          ORDER SUMMARY
+          Thông tin đơn
         </Heading>
         <Flex lineHeight={"10"}>
           <Box align={"left"} mx={"2"} my={"4"}>
-            <Text>ORIGINAL PRICE</Text>
-            <Text>{cart.length} ITEMS</Text>
-            <Text>QUANTITY</Text>
-            <Text>DISCOUNT</Text>
-            <Text>DELIVERY</Text>
-            <Text>TOTAL</Text>
-            <Badge colorScheme="red">( inclusive to all taxes )</Badge>
+            {/* <Text>ORIGINAL PRICE</Text> */}
+            <Text>{cart.length} Món quà</Text>
+            <Text>Số lượng
+            </Text>
+            {/* <Text>DISCOUNT</Text> */}
+            <Text>Phí vận chuyển</Text>
+            <Text>Tổng</Text>
+            {/* <Badge colorScheme="red">( inclusive to all taxes )</Badge> */}
           </Box>
           <Box mx={"2"} my={"4"}>
-            <Text as="s" color="grey">
+            {/* <Text as="s" color="grey">
               ₹{show_price}.00
-            </Text>
-            <Text>₹{discount_price}.00</Text>
+            </Text> */}
+            <Text>{discount_price} ET</Text>
             <Text>{quantity}</Text>
-            <Text>₹{discount}.00</Text>
+            {/* <Text>₹{discount}.00</Text> */}
             <Text>FREE</Text>
-            <Text>₹{total_discount}.00</Text>
+            <Text>{discount_price} ET</Text>
           </Box>
         </Flex>
       </Stack>
-      <Stack my={"2"}>{coupon}</Stack>
+      {/* <Stack my={"2"}>{coupon}</Stack> */}
     </Box>
   );
 };

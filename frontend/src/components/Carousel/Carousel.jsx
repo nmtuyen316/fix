@@ -8,9 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import Slider from "react-slick";
-import intro from "../../img/intro.gif"
-import intro2 from "../../img/intro2.gif"
-
+import img from "../../img/img";
 
 export default function Carousel() {
   const [slider, setSlider] = React.useState(null);
@@ -31,9 +29,11 @@ export default function Carousel() {
   const cards = [
     {
       id: 1001,
-      title: "Shopping! Gappy ji is Now Happy ji",
-      text: "Here are Men's, Women's, Clothes and Shoes Collection, where you can buy Shoes and clothes with great prices",
-      image:[intro,intro2]
+      image:[img.intro,img.intro2]
+    },
+    {
+      id: 1002,
+      image:[img.introKhuyenMai,img.introKhuyenMai2]
     },
   ];
 

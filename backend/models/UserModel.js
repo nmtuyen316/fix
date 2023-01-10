@@ -35,7 +35,11 @@ const UserSchema = new Schema({
     refreshtoken: {
         type: String,
 		default: null
-    }
+    },
+	admin:{
+		type: Boolean,
+		default:false
+	}
 },
 {
 	timestamps: true

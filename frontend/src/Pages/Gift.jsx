@@ -1,63 +1,39 @@
-import { 
-    Box, 
-    Image,
-    keyframes, 
-} from "@chakra-ui/react";
-import { useRef } from "react";
-import { motion } from 'framer-motion';
-const animationSwing = keyframes`
-    0%{transform: rotate(-3deg)}
-    50%{transform:rotate(3deg)}
-    100%{transform: rotate(-3deg)}
-`;
-const animation = `${animationSwing} 2s ease-in-out infinite`;
+import "@fontsource/pacifico";
+import { Box, Text } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 const Gift = () => {
-    const prevClick = useRef();
-    const nextClick = useRef();
-    const handleClick = () =>{
-        prevClick.current.style = `
-        display:none;`
-        nextClick.current.style = `
-        display:block;`
-    }
+  const profileData = useSelector((store)=>store.AuthReducer.profileData)
   return (
-    <>
-      <Box height={"100vh"} position={"relative"}>
-        <Image 
-        as={motion.image}
-        animation={animation}
-        onClick={handleClick}
-        ref={prevClick}
-          src="https://cdn.glitch.global/a001b4bd-7c31-4b89-baf1-a07f3e16f388/Picture1.png?v=1672973329429"
-          height={"65vh"}
-          position={"absolute"}
-          top={"50%"}
-          left={"50%"}
-          transform={"translate(-50%, -50%)"}
-          zIndex={2}
-        ></Image>
-          <Image 
-          src="https://cdn.glitch.global/a001b4bd-7c31-4b89-baf1-a07f3e16f388/Picture3.png?v=1672973348329"
-          height={"68vh"}
-          position={"absolute"}
-          top={"48.5%"}
-          left={"50%"}
-          transform={"translate(-50%, -50%)"}
-          zIndex={1}
-          ></Image>
-        <Image
-        ref={nextClick}
-          src="https://cdn.glitch.global/a001b4bd-7c31-4b89-baf1-a07f3e16f388/Picture2.png?v=1672973341344"
-          display={"none"}
-          height={"82vh"}
-          position={"absolute"}
-          top={"41.5%"}
-          left={"50%"}
-          transform={"translate(-50%, -50%)"}
-          zIndex={0}
-        ></Image>
+    <Box
+      display={"flex"}
+      alignItems={"center"}
+      justifyContent={"center"}
+      width={"98vw"}
+      height={"80vh"}
+      backgroundColor={"rgb(208,115,95)"}
+    >
+      <Box
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        width={"90vw"}
+        height={"60vh"}
+        boxShadow="dark-lg"
+        p="6"
+        borderRadius={"15px"}
+        backgroundColor={"rgb(187,58,44)"}
+      >
+        <Text 
+        fontFamily={"Pacifico"}
+        fontSize={"5vw"}
+        color={"rgb(219,179,44)"}
+
+        >
+            Chúc Mừng Năm Mới "{profileData.name}" <br/>
+            Chúng tôi có một món quà giành cho bạn hãy liên hệ ngay để nhận
+        </Text>
       </Box>
-    </>
+    </Box>
   );
 };
 export default Gift;
