@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Box,
   IconButton,
@@ -36,6 +36,10 @@ export default function Carousel() {
       image:[img.introKhuyenMai,img.introKhuyenMai2]
     },
   ];
+  const a = useRef();
+  const handleClick = () =>{
+    window.location.href=a.current.href;
+  }
 
   return (
     <Box
@@ -109,8 +113,9 @@ export default function Carousel() {
                     background: "#555d5f",
                     color: "whitesmoke",
                   }}
+                  onClick={handleClick}
                 >
-                  <a href="tel:+84369253220">Liên hệ ngay</a>
+                  <a ref={a} href="tel:+84359284818" target="_blank" rel="noreferrer">Liên hệ ngay</a>
                 </Button>
         </Box>
         ))}
