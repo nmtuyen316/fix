@@ -6,11 +6,13 @@ import {
   Button,
   useMediaQuery,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import Slider from "react-slick";
 import img from "../../img/img";
 
 export default function Carousel() {
+  const navigate= useNavigate();
   const [slider, setSlider] = React.useState(null);
   const [isLargerThan] = useMediaQuery("(min-width: 768px)");
   const [trimSlider] = useMediaQuery("(min-width:648px)");
@@ -39,6 +41,7 @@ export default function Carousel() {
   const a = useRef();
   const handleClick = () =>{
     window.location.href=a.current.href;
+    // navigate('/call')
   }
 
   return (

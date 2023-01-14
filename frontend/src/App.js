@@ -37,24 +37,24 @@ function App() {
   if(location.pathname!=='/gift' && user.admin){
     dispatch({type:GET_GIFT_F})
   }
-  useEffect(() => {
-    const handleTabClose = event => {
-      event.preventDefault();
+  // useEffect(() => {
+  //   const handleTabClose = event => {
+  //     event.preventDefault();
 
-      return (event.returnValue = 'bạn chắc chắn muốn thoát?');
-    };
+  //     return (event.returnValue = 'bạn chắc chắn muốn thoát?');
+  //   };
 
-    window.addEventListener('beforeunload', handleTabClose);
+  //   window.addEventListener('beforeunload', handleTabClose);
 
-    return () => {
-      window.removeEventListener('beforeunload', handleTabClose);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('beforeunload', handleTabClose);
+  //   };
+  // }, []);
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
       <AllRoutes /><br/>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
